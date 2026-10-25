@@ -176,6 +176,44 @@ footer{margin-top:20px;background:linear-gradient(110deg,#200a16,#53172f);border
 @media(max-width:850px){.layout{grid-template-columns:1fr}.preview-wrap{position:static}.invite{max-width:460px;min-height:620px}.templates{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:460px){.hero{padding:42px 16px}.templates{grid-template-columns:repeat(2,minmax(0,1fr))}.template-art{height:130px}.panel{padding:16px}}
 
+
+/* TRUE TEMPLATE DIFFERENTIATION: each design changes the entire invitation, not only its accent color. */
+.invite{transition:background 0.35s,border-radius 0.35s;}
+.invite.theme-wine{background:radial-gradient(ellipse at 50% 20%,#8f2748 0,#4a0b24 48%,#170610 100%);border:7px double #d8b56f;border-radius:24px}
+.invite.theme-pink{background:radial-gradient(ellipse at 50% 10%,#fff1f6 0,#efb6cb 45%,#8d345b 100%);color:#6b2544;border:12px solid #f9e5ed;border-radius:48% 48% 18px 18px}
+.invite.theme-pink h3,.invite.theme-pink .names{color:#762847;text-shadow:none}.invite.theme-pink .topline,.invite.theme-pink .details,.invite.theme-pink .message,.invite.theme-pink .invite-line,.invite.theme-pink .bottom{color:#6e2a47}
+.invite.theme-gold{background:linear-gradient(135deg,#4a1d2a,#c39a4f 48%,#34131f);border:10px double #f5df9a;border-radius:6px}
+.invite.theme-ivory{background:linear-gradient(160deg,#fffdf4,#ead7bb 48%,#a66e79);border:12px solid #fff8e9;border-radius:6px;color:#623448}
+.invite.theme-ivory h3,.invite.theme-ivory .names{color:#633047;text-shadow:none}.invite.theme-ivory .topline,.invite.theme-ivory .details,.invite.theme-ivory .message,.invite.theme-ivory .invite-line,.invite.theme-ivory .bottom{color:#633047}
+.invite.theme-purple{background:radial-gradient(ellipse at 50% 0,#b4a0e6,#4c2c71 50%,#1a102c);border:3px solid #d6c1ff;border-radius:50px 50px 12px 12px}
+.invite.theme-red{background:radial-gradient(ellipse at 50% 35%,#c92c4b,#640d29 60%,#210614);border:12px solid #5d0c24;border-radius:4px;box-shadow:inset 0 0 0 3px #e4b66a,0 18px 40px #40102035}
+.invite.theme-gift{background:repeating-linear-gradient(135deg,#a40f4c 0 18px,#c92b66 18px 36px,#7d0d3d 36px 54px);border:12px solid #ffd9e7;border-radius:28px}
+.invite.theme-letter{background:linear-gradient(160deg,#fff7e5,#d9b78d 58%,#80506a);border:18px solid #f6e7c9;border-radius:8px;color:#4d293c}
+.invite.theme-letter h3,.invite.theme-letter .names{color:#4d293c;text-shadow:none}.invite.theme-letter .topline,.invite.theme-letter .details,.invite.theme-letter .message,.invite.theme-letter .invite-line,.invite.theme-letter .bottom{color:#4d293c}
+.invite.theme-rings{background:radial-gradient(circle at 50% 35%,#e9dfbf,#687c8d 42%,#142436 100%);border:3px solid #d9c47d;border-radius:50% 50% 18px 18px}
+.invite.theme-candle{background:radial-gradient(ellipse at 50% 38%,#b56a35,#4b211e 48%,#130d16);border:2px solid #dfaa65;border-radius:18px;box-shadow:inset 0 0 60px #f7a44b44,0 18px 40px #40102035}
+.invite.theme-pearl{background:radial-gradient(ellipse at 50% 25%,#fff,#eadce2 55%,#b9a0ad);border:14px double #fffdf5;border-radius:30px;color:#5e4352}
+.invite.theme-pearl h3,.invite.theme-pearl .names{color:#5e4352;text-shadow:none}.invite.theme-pearl .topline,.invite.theme-pearl .details,.invite.theme-pearl .message,.invite.theme-pearl .invite-line,.invite.theme-pearl .bottom{color:#5e4352}
+.invite.theme-garden{background:linear-gradient(160deg,#d5dfb4,#48745a 43%,#102f2a);border:8px solid #c9d5a0;border-radius:100px 100px 18px 18px}
+.invite.theme-night{background:radial-gradient(ellipse at 50% 20%,#344f91,#10172f 65%,#050813);border:2px solid #91b8ff;border-radius:4px}
+.invite.theme-butterfly{background:radial-gradient(ellipse at 50% 20%,#f4d9ff,#b69bdd 48%,#45305f);border:10px solid #ead7ff;border-radius:44% 44% 18px 18px}
+.invite.theme-sakura{background:linear-gradient(150deg,#fff8fa,#f8d6e0 52%,#a94e72);border:10px solid #fff4f7;border-radius:12px 12px 80px 80px;color:#6d2946}
+.invite.theme-sakura h3,.invite.theme-sakura .names{color:#6d2946;text-shadow:none}.invite.theme-sakura .topline,.invite.theme-sakura .details,.invite.theme-sakura .message,.invite.theme-sakura .invite-line,.invite.theme-sakura .bottom{color:#6d2946}
+.invite.theme-royalblue{background:linear-gradient(145deg,#173e75,#07172f 60%,#020914);border:10px double #d5b66d;border-radius:8px}
+.invite.theme-terracotta{background:linear-gradient(180deg,#f5c18e 0,#c86f58 40%,#743e4a 68%,#2e1b31 100%);border:8px solid #e9b782;border-radius:10px}
+.invite.theme-birthday{background:radial-gradient(circle at 50% 18%,#ffeb9f,#f58fbd 40%,#a52f74 78%,#4b164f);border:12px solid #ffe6a0;border-radius:28px;box-shadow:inset 0 0 0 4px #fff8e7,0 18px 40px #40102035}
+.invite.theme-balloon{background:linear-gradient(150deg,#5ddbd3,#5875c9 48%,#572e80);border:8px solid #baf8ed;border-radius:35px 35px 8px 8px}
+.invite.theme-disco{background:repeating-radial-gradient(circle at 50% 15%,#783ab0 0 10px,#241038 11px 26px,#090713 27px 42px);border:5px solid #e7b8ff;border-radius:18px;box-shadow:inset 0 0 60px #d74dff55,0 18px 40px #40102035}
+.invite.theme-minimal{background:#fbf8f1;border:1px solid #a69a8e;border-radius:0;color:#29262b;box-shadow:inset 0 0 0 12px #fbf8f1,inset 0 0 0 13px #b6a99a,0 18px 40px #40102020}
+.invite.theme-minimal h3,.invite.theme-minimal .names{color:#29262b;text-shadow:none}.invite.theme-minimal .topline,.invite.theme-minimal .details,.invite.theme-minimal .message,.invite.theme-minimal .invite-line,.invite.theme-minimal .bottom{color:#51464b}
+.invite.theme-watercolor{background:radial-gradient(ellipse at 15% 20%,#f5d7e8 0 16%,transparent 35%),radial-gradient(ellipse at 80% 32%,#b8e0d4 0 20%,transparent 40%),linear-gradient(145deg,#fff9f2,#d9e8d8);border:10px solid #fffdf8;border-radius:24px;color:#4a3b4c}
+.invite.theme-watercolor h3,.invite.theme-watercolor .names{color:#4a3b4c;text-shadow:none}.invite.theme-watercolor .topline,.invite.theme-watercolor .details,.invite.theme-watercolor .message,.invite.theme-watercolor .invite-line,.invite.theme-watercolor .bottom{color:#4a3b4c}
+.invite.theme-emerald{background:linear-gradient(145deg,#238267,#074637 45%,#031b20);border:12px double #c3a65d;border-radius:12px}
+.invite.theme-champagne{background:radial-gradient(ellipse at 50% 12%,#fff2c7,#c8a46e 48%,#613047);border:10px solid #f5e3ad;border-radius:50% 50% 14px 14px}
+/* Give each miniature a distinct silhouette and decorative treatment too. */
+.template-art.art-wine{background:radial-gradient(circle,#a5385b,#3c081e 75%)}.template-art.art-pink{background:linear-gradient(145deg,#fff0f6,#e99dbb,#8f345b)}.template-art.art-gold{background:linear-gradient(135deg,#ffe8a2,#b37b38,#381629)}.template-art.art-ivory{background:linear-gradient(135deg,#fffdf2,#ddc7a7)}.template-art.art-purple{background:radial-gradient(circle,#c3a9f3,#3c225d)}.template-art.art-red{background:linear-gradient(145deg,#f37e8a,#9e1238,#290719)}
+.template-art.art-gift{background:repeating-linear-gradient(45deg,#d72c70 0 12px,#8f1246 12px 24px);color:#fff}.template-art.art-letter{background:linear-gradient(135deg,#fff2d8,#d3b18c,#73425d);color:#4d293c}.template-art.art-rings{background:radial-gradient(circle,#d6c48c,#61768c,#172a40)}.template-art.art-candle{background:radial-gradient(circle,#c47b42,#45201e,#100b13)}.template-art.art-pearl{background:linear-gradient(135deg,#fff,#d9c6d0,#a28a9b);color:#5e4352}.template-art.art-garden{background:linear-gradient(135deg,#d9e2b9,#477653,#12352d)}.template-art.art-night{background:radial-gradient(circle,#385998,#080d20)}.template-art.art-butterfly{background:linear-gradient(135deg,#f5d8ff,#b69bdd,#45305f)}.template-art.art-sakura{background:linear-gradient(135deg,#fff7fa,#f3cad8,#a94e72);color:#6d2946}.template-art.art-royalblue{background:linear-gradient(135deg,#24518d,#07152c)}.template-art.art-terracotta{background:linear-gradient(180deg,#f6c58f,#c86f58,#3c2435)}.template-art.art-birthday{background:radial-gradient(circle,#ffe89a,#f48dbd,#9e2870)}.template-art.art-balloon{background:linear-gradient(135deg,#5ddbd3,#5875c9,#572e80)}.template-art.art-disco{background:repeating-radial-gradient(circle,#783ab0 0 6px,#100819 7px 16px)}.template-art.art-minimal{background:#fbf8f1;color:#29262b}.template-art.art-watercolor{background:radial-gradient(circle at 20% 20%,#f5d7e8,transparent 40%),radial-gradient(circle at 80% 60%,#b8e0d4,transparent 50%),#fff9f2;color:#4a3b4c}.template-art.art-emerald{background:linear-gradient(135deg,#238267,#031b20)}.template-art.art-champagne{background:radial-gradient(circle,#fff2c7,#c8a46e,#613047)}
+
 </style>
 </head>
 <body>
