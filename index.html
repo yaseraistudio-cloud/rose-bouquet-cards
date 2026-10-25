@@ -4,230 +4,717 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rose Bouquet Cards | Free Invitation Maker</title>
-<meta name="description" content="Create beautiful birthday, wedding and engagement invitations for free. Customize your card, download it and share it on WhatsApp.">
+<meta name="theme-color" content="#fff0f5">
+<title>Rose Bouquet Cards | Beautiful Invitations</title>
+<meta name="description" content="Create beautiful birthday, wedding and engagement invitations with Rose Bouquet Cards.">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
 <style>
-:root{--rose:#a83259;--gold:#d7b56d;--cream:#fff9f5;--ink:#33252b}
+:root{
+  --pink:#e84c83;
+  --deep:#a51e4c;
+  --red:#bd2448;
+  --gold:#c6a05a;
+  --cream:#fffaf6;
+  --ink:#4c2637;
+}
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:var(--cream);color:var(--ink)}
-header{background:#fff;padding:18px 5%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #f0e1e4;gap:15px}
-.brand{font-family:Georgia,serif;color:var(--rose);font-size:25px;font-weight:bold}
-header small{color:#876d77}
-.hero{text-align:center;padding:48px 18px 30px;background:linear-gradient(135deg,#fff0f2,#fffaf2)}
-.hero h1{font-family:Georgia,serif;font-size:clamp(30px,5vw,48px);margin:0 0 12px;color:#782944}
-.hero p{line-height:1.7;color:#735c65}
-.wrap{max-width:1050px;margin:25px auto;padding:0 16px}
-.categories{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:25px}
-button,select,input,textarea{font:inherit}
-button{cursor:pointer;border:0;border-radius:10px;padding:12px 16px;font-weight:bold}
-.cat{background:white;border:1px solid #ead6dc;color:#713047}
-.cat.active,.primary{background:var(--rose);color:white}
-.workspace{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
-.panel{background:white;padding:22px;border:1px solid #efdee3;border-radius:18px;box-shadow:0 8px 25px #5720370b}
-h2{font-family:Georgia,serif;color:#782944;margin-top:0}
-label{display:block;font-size:14px;font-weight:bold;margin:15px 0 7px}
-input,select,textarea{width:100%;padding:12px;border:1px solid #e4cfd6;border-radius:9px;background:#fffdfc;color:#33252b}
-textarea{resize:vertical}
-.hint{font-size:12px;color:#846c75;line-height:1.6}
-.preview-area{background:#f9edf0;border-radius:14px;padding:18px;display:flex;justify-content:center}
-.card{width:100%;max-width:330px;min-height:430px;padding:25px 17px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border:5px double var(--gold);background:linear-gradient(145deg,#fffaf4,#fff0f3);color:#752b45;position:relative;overflow:hidden}
-.card:before,.card:after{content:"❀ ✿ ❀";position:absolute;color:#ce8d9e;font-size:22px;letter-spacing:5px}
-.card:before{top:12px}.card:after{bottom:12px}
-.card.green{background:linear-gradient(145deg,#153f35,#092c27);color:#f7df9e;border-color:#e1c16c}
-.card.dark{background:linear-gradient(145deg,#252333,#473048);color:#ffe4c2;border-color:#d7b56d}
-.flower{font-size:36px;margin:16px 0 5px}
-.eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase}
-.card h3{font-family:Georgia,serif;font-size:34px;line-height:1.2;margin:15px 0;overflow-wrap:anywhere}
-.card .names{font-family:Georgia,serif;font-size:23px;overflow-wrap:anywhere}
-.card .message{font-size:13px;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}
-.card .details{font-size:13px;line-height:1.8;margin-top:15px;white-space:pre-wrap;overflow-wrap:anywhere}
-.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}
-.actions button{flex:1;min-width:130px}
-.secondary{background:#f6e7eb;color:#792e48}
-footer{text-align:center;padding:30px 15px;color:#8a7079;font-size:13px}
-@media(max-width:720px){.workspace{grid-template-columns:1fr}.hero{padding-top:35px}.panel{padding:17px}}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:"Trebuchet MS",Arial,sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(ellipse at 5% 10%,#ffe0e9 0,transparent 32%),
+    radial-gradient(ellipse at 95% 35%,#ffe6ed 0,transparent 28%),
+    linear-gradient(135deg,#fffaf8,#fff0f5 55%,#fff8f2);
+  min-height:100vh;
+}
+button,input,textarea{font:inherit}
+button{cursor:pointer}
+a{color:inherit}
+.topbar{
+  padding:12px 6%;
+  background:#fffaf8eF;
+  border-bottom:1px solid #f3d5df;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  flex-wrap:wrap;
+  position:relative;
+  z-index:5;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:var(--deep);
+  font:bold 23px Georgia,serif;
+}
+.brand-icon{font-size:32px}
+.top-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.music-button,.nav-button{
+  border:1px solid #eac4d2;
+  border-radius:30px;
+  padding:10px 15px;
+  color:var(--deep);
+  background:white;
+  font-weight:bold;
+}
+.music-button:hover,.nav-button:hover{background:#ffe7ef}
+.hero{
+  position:relative;
+  overflow:hidden;
+  text-align:center;
+  padding:64px 18px 58px;
+  background:
+    radial-gradient(ellipse at 0 100%,#ffd3e1,transparent 48%),
+    radial-gradient(ellipse at 100% 0,#ffe6ec,transparent 45%);
+}
+.hero:before,.hero:after{
+  position:absolute;
+  font-size:clamp(55px,9vw,100px);
+  opacity:.28;
+  pointer-events:none;
+  animation:roseFloat 6s ease-in-out infinite;
+}
+.hero:before{content:"🌹";left:4%;top:20px}
+.hero:after{content:"🌸";right:5%;bottom:15px;animation-delay:1.5s}
+.eyebrow{
+  display:inline-block;
+  padding:9px 16px;
+  border:1px solid #ecc4d1;
+  background:#ffffffb8;
+  border-radius:30px;
+  font-size:11px;
+  letter-spacing:2px;
+  color:var(--deep);
+  font-weight:bold;
+}
+.hero h1{
+  font:normal clamp(37px,7vw,67px)/1.12 Georgia,serif;
+  color:#a62050;
+  margin:20px auto 15px;
+  max-width:850px;
+}
+.hero h1 span{color:#d74c7c;font-style:italic}
+.hero p{
+  max-width:610px;
+  margin:0 auto;
+  color:#795365;
+  line-height:1.8;
+  font-size:16px;
+}
+.hero-buttons{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:25px;
+}
+.primary,.secondary{
+  border:0;
+  border-radius:30px;
+  padding:14px 23px;
+  font-weight:bold;
+  text-decoration:none;
+  display:inline-block;
+}
+.primary{
+  color:white;
+  background:linear-gradient(135deg,#c72f61,#ef6895);
+  box-shadow:0 7px 20px #c72f6130;
+}
+.primary:hover{transform:translateY(-2px)}
+.secondary{color:#a32451;background:white;border:1px solid #efcfda}
+main{max-width:1200px;margin:auto;padding:30px 17px 55px}
+.section-heading{text-align:center;margin:24px 0}
+.section-heading h2{
+  color:#962349;
+  font:normal clamp(28px,4vw,39px) Georgia,serif;
+  margin:0 0 9px;
+}
+.section-heading p{color:#876575;line-height:1.7;font-size:14px}
+.rose-divider{color:#d74b7d;letter-spacing:9px;margin:12px 0}
+.categories{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:13px;
+  margin:25px 0 30px;
+}
+.category{
+  background:#ffffffd9;
+  border:1px solid #efd3dd;
+  border-radius:17px;
+  padding:17px 8px;
+  color:#8d3155;
+  font-weight:bold;
+  box-shadow:0 5px 18px #7e24400a;
+  transition:.2s;
+}
+.category .cat-icon{display:block;font-size:29px;margin-bottom:8px}
+.category.active,.category:hover{
+  background:linear-gradient(135deg,#b62958,#e95588);
+  border-color:#c73c6c;
+  color:white;
+  transform:translateY(-2px);
+}
+.template-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:15px;
+}
+.template{
+  padding:9px;
+  border:2px solid #f0dce3;
+  border-radius:15px;
+  background:#fff;
+  text-align:center;
+  box-shadow:0 7px 20px #6c29400b;
+  min-width:0;
+  transition:.2s;
+}
+.template:hover{transform:translateY(-3px)}
+.template.selected{border-color:#e84c83;box-shadow:0 6px 22px #e84c8329}
+.mini{
+  height:145px;
+  border-radius:9px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  padding:10px;
+  overflow:hidden;
+  border:3px double var(--accent);
+  color:var(--ink);
+  background:var(--paper);
+  white-space:pre-line;
+  font:normal 17px Georgia,serif;
+}
+.mini .mini-icon{font-size:30px}
+.mini small{font:10px Arial,sans-serif;letter-spacing:2px}
+.template-name{font-weight:bold;color:#75334e;font-size:13px;padding:10px 2px 3px}
+.pink{
+ --paper:#fff0f5;--ink:#852749;--accent:#d44c7b;
+ background:linear-gradient(145deg,#fff9fa,#fbdbe7);
+}
+.royal{
+ --paper:#231629;--ink:#f7dfaa;--accent:#d8b365;
+ background:linear-gradient(145deg,#3b2441,#17101f);
+}
+.garden{
+ --paper:#f5f6e9;--ink:#37553d;--accent:#8ba777;
+ background:linear-gradient(145deg,#f7f7ed,#e9efdf);
+}
+.modern{
+ --paper:#f4f2ed;--ink:#45413a;--accent:#b7a38a;
+ border-style:solid;border-width:2px;
+}
+.cute{
+ --paper:#fff4d9;--ink:#8a4764;--accent:#ed9cb6;
+ border-style:dashed;border-radius:20px;
+}
+.love{
+ --paper:#fff0ee;--ink:#963c53;--accent:#c97989;
+ border-radius:40px 40px 8px 8px;
+}
+.night{
+ --paper:#171d38;--ink:#f3e7c3;--accent:#c7b0f1;
+ background:linear-gradient(145deg,#273257,#11162d);
+}
+.blue{
+ --paper:#edf4ff;--ink:#2c4d7a;--accent:#7a9dd5;
+}
+.gold{
+ --paper:#fff8e9;--ink:#78501d;--accent:#d1a448;
+ background:linear-gradient(145deg,#fff9e9,#f3e2b9);
+}
+.red{
+ --paper:#fff0ed;--ink:#9b193a;--accent:#c92c4c;
+ background:linear-gradient(145deg,#fff6f4,#f8d9de);
+}
+.lilac{
+ --paper:#f9f0ff;--ink:#69437d;--accent:#b79bcf;
+}
+.sage{
+ --paper:#f2f5ec;--ink:#45634d;--accent:#a2b99b;
+}
+.workspace{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:23px;
+  align-items:start;
+  margin-top:42px;
+}
+.panel{
+  background:#ffffffed;
+  border:1px solid #efd8e1;
+  border-radius:20px;
+  padding:22px;
+  box-shadow:0 10px 35px #7e24400c;
+  min-width:0;
+}
+.panel h2{
+  font:normal 27px Georgia,serif;
+  color:#9a2850;
+  margin:0 0 9px;
+}
+.panel .intro{font-size:13px;line-height:1.6;color:#947184;margin-bottom:18px}
+label{display:block;font-size:13px;font-weight:bold;color:#75435a;margin:14px 0 6px}
+input,textarea{
+  width:100%;
+  border:1px solid #ead0da;
+  border-radius:10px;
+  padding:12px 13px;
+  background:#fffdfd;
+  color:#4c2637;
+  outline:none;
+}
+input:focus,textarea:focus{border-color:#e45c8b;box-shadow:0 0 0 3px #e45c8b19}
+textarea{min-height:85px;resize:vertical}
+.preview-wrap{
+  padding:12px;
+  border-radius:14px;
+  background:linear-gradient(135deg,#fff0f5,#fbe7ed,#fff7ec);
+}
+.invite{
+  --paper:#fff0f5;--ink:#852749;--accent:#d44c7b;
+  min-height:490px;
+  padding:34px 20px;
+  border:7px double var(--accent);
+  outline:1px solid var(--accent);
+  outline-offset:-14px;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:var(--ink);
+  background:linear-gradient(145deg,var(--paper),#ffffff);
+}
+.invite:before,.invite:after{
+  position:absolute;
+  content:"🌹";
+  font-size:40px;
+  opacity:.24;
+  animation:roseFloat 5s ease-in-out infinite;
+}
+.invite:before{top:18px;left:12px}
+.invite:after{bottom:18px;right:12px;animation-delay:1.5s}
+.invite.royal,.invite.night{background:linear-gradient(145deg,#31213a,var(--paper))}
+.invite.love{border-radius:80px 80px 10px 10px}
+.invite.cute{border-style:dashed;border-radius:28px}
+.invite.modern{border-width:2px}
+.invite .small-heading{font-size:10px;letter-spacing:3px;text-transform:uppercase;margin:8px 0 13px}
+.invite .big-icon{font-size:46px;margin:4px 0;animation:roseFloat 4s ease-in-out infinite}
+.invite h3{
+  font:normal clamp(29px,4vw,39px)/1.2 Georgia,serif;
+  color:var(--accent);
+  overflow-wrap:anywhere;
+  margin:12px 0;
+}
+.invite .subtitle{font:italic 17px Georgia,serif;margin:4px 0}
+.invite .line{width:55%;height:1px;background:var(--accent);margin:15px auto}
+.invite .details{white-space:pre-line;font-size:13px;line-height:2;overflow-wrap:anywhere}
+.invite .personal-message{font:italic 14px/1.7 Georgia,serif;white-space:pre-line;margin-top:15px;overflow-wrap:anywhere}
+.invite .bottom-text{font-size:9px;letter-spacing:3px;margin-top:20px}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.action-button{
+  padding:13px 8px;border:0;border-radius:11px;
+  background:linear-gradient(135deg,#bd2b5b,#e9588a);
+  color:white;font-weight:bold;
+}
+.action-button.secondary-action{background:#f9e8ef;color:#962349}
+.action-button:disabled{opacity:.6;cursor:wait}
+.hint{font-size:12px;color:#8a7180;line-height:1.7;margin-top:13px}
+.features{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+  margin:35px 0;
+}
+.feature{
+  background:#ffffffd9;
+  border:1px solid #f0dce3;
+  border-radius:15px;
+  padding:20px 12px;
+  text-align:center;
+}
+.feature .icon{font-size:28px}
+.feature h3{font:normal 18px Georgia,serif;color:#962349}
+.feature p{font-size:12px;line-height:1.7;color:#866a79}
+footer{
+  background:linear-gradient(135deg,#fff0f5,#fffaf5);
+  border-top:1px solid #f1d8e1;
+  text-align:center;
+  padding:30px 15px;
+  color:#8b536b;
+  line-height:1.9;
+  font-size:12px;
+}
+footer strong{font:normal 23px Georgia,serif;color:#a32250}
+.petals{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0;opacity:.25}
+.petal{position:absolute;top:-50px;animation:fall linear infinite}
+header,main,footer,.hero{position:relative;z-index:1}
+@keyframes roseFloat{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-7px) rotate(2deg)}}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+@media(max-width:800px){
+ .template-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .workspace{grid-template-columns:1fr}
+ .mini{height:125px}
+}
+@media(max-width:480px){
+ .topbar{padding:13px 4%}
+ .brand{font-size:19px}
+ .brand-icon{font-size:27px}
+ .music-button,.nav-button{font-size:12px;padding:9px 11px}
+ .hero{padding:48px 16px}
+ .categories{gap:7px}
+ .category{font-size:13px;padding:14px 3px}
+ .category .cat-icon{font-size:25px}
+ main{padding:20px 12px 40px}
+ .panel{padding:15px}
+ .invite{min-height:420px;padding:30px 16px}
+ .features{gap:8px}
+ .feature{padding:13px 7px}
+ .feature h3{font-size:15px}
+ .feature p{font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*:before,*:after{animation:none!important;scroll-behavior:auto!important}
+}
 </style>
 </head>
+
 <body>
-<header>
-  <div>
-    <div class="brand">🌹 Rose Bouquet Cards</div>
-    <small>Beautiful moments, beautifully invited</small>
+<div class="petals" id="petals" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="brand"><span class="brand-icon">🌹</span> Rose Bouquet Cards</div>
+  <div class="top-actions">
+    <button class="music-button" id="musicButton" type="button">♫ Play Soft Music</button>
+    <a class="nav-button" href="#studio">Create Card ↓</a>
   </div>
-  <button class="secondary" onclick="document.getElementById('editor').scrollIntoView({behavior:'smooth'})">Create a Card</button>
 </header>
 
 <section class="hero">
-  <h1>Make Your Moments Special</h1>
-  <p>Create a beautiful invitation for free.<br>Personalize your card, download it and share it with loved ones.</p>
+  <span class="eyebrow">A LITTLE LOVE IN EVERY DETAIL</span>
+  <h1>Every Invitation Tells<br><span>a Beautiful Story</span></h1>
+  <p>Elegant invitations for life's most beautiful moments. Choose your favorite design, add your personal details, and share the joy with everyone you love.</p>
+  <div class="hero-buttons">
+    <a class="primary" href="#studio">🌹 Create Your Invitation</a>
+    <a class="secondary" href="#templatesSection">Explore Designs</a>
+  </div>
+  <div class="rose-divider">✿ ❀ 🌹 ❀ ✿</div>
 </section>
 
-<main class="wrap" id="editor">
-  <div class="categories">
-    <button class="cat active" data-cat="birthday">🎂 Birthday</button>
-    <button class="cat" data-cat="wedding">💍 Wedding</button>
-    <button class="cat" data-cat="engagement">💖 Engagement</button>
+<main>
+  <section class="section-heading" id="templatesSection">
+    <h2>Find Your Perfect Design</h2>
+    <p>Beautifully styled invitations, made for your unforgettable moments.</p>
+  </section>
+
+  <div class="categories" aria-label="Invitation categories">
+    <button class="category active" type="button" data-cat="Birthday">
+      <span class="cat-icon">🎂</span>Birthday
+    </button>
+    <button class="category" type="button" data-cat="Wedding">
+      <span class="cat-icon">💍</span>Wedding
+    </button>
+    <button class="category" type="button" data-cat="Engagement">
+      <span class="cat-icon">💗</span>Engagement
+    </button>
   </div>
 
-  <div class="workspace">
+  <div class="template-grid" id="templates"></div>
+
+  <div class="workspace" id="studio">
     <section class="panel">
-      <h2>Customize Your Invitation</h2>
-      <label for="style">Choose a design</label>
-      <select id="style">
-        <option value="rose">Blush Rose</option>
-        <option value="green">Emerald & Gold</option>
-        <option value="dark">Midnight Luxury</option>
-      </select>
+      <h2>Personalize Your Card</h2>
+      <p class="intro">Add your details below. Your invitation preview updates as you type.</p>
 
-      <label for="host">Name / Names</label>
-      <input id="host" maxlength="70" placeholder="e.g. Ayesha or Ayesha & Ahmed" value="Your Name">
+      <label for="name">Name / Names</label>
+      <input id="name" maxlength="70" value="Sophia" placeholder="Enter name or names">
 
-      <label for="date">Date and time</label>
-      <input id="date" maxlength="100" placeholder="e.g. 25 December, 7:00 PM">
+      <label for="date">Date</label>
+      <input id="date" maxlength="80" value="Saturday, 21 November 2026" placeholder="Event date">
+
+      <label for="time">Time</label>
+      <input id="time" maxlength="50" value="6:00 PM onwards" placeholder="Event time">
 
       <label for="venue">Venue</label>
-      <input id="venue" maxlength="120" placeholder="Enter venue or address">
+      <input id="venue" maxlength="100" value="Rose Garden Hall" placeholder="Event location">
 
-      <label for="message">Personal message</label>
-      <textarea id="message" rows="3" maxlength="240">We would be delighted to celebrate this special moment with you!</textarea>
+      <label for="message">Your Personal Message</label>
+      <textarea id="message" maxlength="250">Your presence will make our special day even more beautiful.</textarea>
 
-      <p class="hint">Your details appear in the preview. This first version does not save your personal details to a database.</p>
+      <div class="actions">
+        <button class="action-button" id="download" type="button">⬇ Download PNG</button>
+        <button class="action-button secondary-action" id="whatsapp" type="button">💬 WhatsApp</button>
+      </div>
+      <p class="hint">PNG creates a picture of your card. WhatsApp opens a message you can review and send. Your details are not saved to a database by this website.</p>
     </section>
 
     <section class="panel">
-      <h2>Live Preview</h2>
-      <div class="preview-area">
-        <div class="card" id="card">
-          <div class="flower" id="flower">🌹</div>
-          <div class="eyebrow" id="eyebrow">You're Invited</div>
-          <h3 id="heading">Birthday Celebration</h3>
-          <div class="names" id="names">Your Name</div>
-          <p class="message" id="messagePreview">We would be delighted to celebrate this special moment with you!</p>
-          <div class="details" id="details">Date and time<br>Venue</div>
-          <div class="flower">✦</div>
+      <h2>Your Beautiful Invitation</h2>
+      <p class="intro">A little preview of your special moment.</p>
+      <div class="preview-wrap">
+        <div class="invite pink" id="invite">
+          <div class="small-heading" id="eyebrow">YOU ARE INVITED</div>
+          <div class="big-icon" id="previewIcon">🌹</div>
+          <h3 id="previewName">Sophia</h3>
+          <div class="subtitle" id="subtitle">Birthday Celebration</div>
+          <div class="line"></div>
+          <div class="details" id="details"></div>
+          <div class="personal-message" id="previewMessage"></div>
+          <div class="bottom-text">WITH LOVE & JOY</div>
         </div>
       </div>
-      <div class="actions">
-        <button class="primary" id="download">Download PNG</button>
-        <button class="secondary" id="whatsapp">Share on WhatsApp</button>
-      </div>
-      <p class="hint">Tip: For best results, enter short names and clear event details.</p>
+      <p class="hint">Decorative animations appear in the live website preview. PNG export captures the still card, not the animations.</p>
     </section>
+  </div>
+
+  <section class="section-heading" style="margin-top:55px">
+    <h2>Made With Love 🌹</h2>
+    <p>Beautiful details for the moments you will always remember.</p>
+  </section>
+  <div class="features">
+    <div class="feature">
+      <div class="icon">🌸</div>
+      <h3>Elegant Designs</h3>
+      <p>Explore romantic floral, modern and royal-inspired styles.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">💌</div>
+      <h3>Your Personal Touch</h3>
+      <p>Customize the names, date, venue and invitation message.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">💗</div>
+      <h3>Easy Sharing</h3>
+      <p>Download your card or share your invitation details through WhatsApp.</p>
+    </div>
   </div>
 </main>
 
-<footer>© <span id="year"></span> Rose Bouquet Cards · Made with love 🌹</footer>
+<footer>
+  <strong>🌹 Rose Bouquet Cards</strong><br>
+  Beautiful invitations for beautiful memories.<br>
+  Made with love ♡
+</footer>
 
 <script>
-const $ = id => document.getElementById(id);
-let category = "birthday";
+"use strict";
 
-const eventInfo = {
-  birthday: {title:"Birthday Celebration",flower:"🎂",eyebrow:"You're Invited"},
-  wedding: {title:"Wedding Invitation",flower:"💍",eyebrow:"Together With Our Families"},
-  engagement: {title:"Engagement Celebration",flower:"💖",eyebrow:"A Beautiful Beginning"}
+const occasions = {
+ Birthday:{
+  subtitle:"Birthday Celebration",
+  eyebrow:"YOU ARE INVITED",
+  names:["Romantic Roses","Royal Gold","Cute Celebration","Modern Bloom"],
+  styles:["pink","royal","cute","modern"],
+  icons:["🌹","✨","🎂","🌿"],
+  message:"Your presence will make our special day even more beautiful."
+ },
+ Wedding:{
+  subtitle:"Wedding Celebration",
+  eyebrow:"TOGETHER WITH OUR FAMILIES",
+  names:["Romantic Roses","Royal Wedding","Garden Elegance","Midnight Luxury"],
+  styles:["love","royal","garden","night"],
+  icons:["🌹","👑","🌿","✨"],
+  message:"Together with our families, we invite you to celebrate our love."
+ },
+ Engagement:{
+  subtitle:"Engagement Celebration",
+  eyebrow:"A BEAUTIFUL BEGINNING",
+  names:["Blush Romance","Golden Sparkle","Blue Elegance","Rose Garden"],
+  styles:["pink","gold","blue","garden"],
+  icons:["💗","✨","💎","🌸"],
+  message:"Join us as we begin a beautiful new chapter together."
+ }
 };
 
-function updateCard(){
-  const info = eventInfo[category];
-  $("heading").textContent = info.title;
-  $("flower").textContent = info.flower;
-  $("eyebrow").textContent = info.eyebrow;
-  $("names").textContent = $("host").value.trim() || "Your Name";
-  $("messagePreview").textContent = $("message").value.trim();
-  const date = $("date").value.trim() || "Date and time";
-  const venue = $("venue").value.trim() || "Venue";
-  $("details").textContent = date + "\n" + venue;
+let currentCategory="Birthday";
+let currentTemplate=0;
+let audioContext=null;
+let musicTimer=null;
+let musicPlaying=false;
+let musicNodes=[];
+const $=id=>document.getElementById(id);
 
-  $("card").className = "card";
-  if($("style").value === "green") $("card").classList.add("green");
-  if($("style").value === "dark") $("card").classList.add("dark");
+function renderTemplates(){
+ const data=occasions[currentCategory];
+ $("templates").innerHTML=data.names.map((name,i)=>`
+  <button type="button" class="template ${i===currentTemplate?"selected":""}" data-index="${i}" aria-pressed="${i===currentTemplate}">
+   <div class="mini ${data.styles[i]}">
+    <span class="mini-icon">${data.icons[i]}</span>
+    <small>${currentCategory.toUpperCase()}</small>
+    <span>${name}</span>
+   </div>
+   <div class="template-name">${name}</div>
+  </button>
+ `).join("");
+
+ document.querySelectorAll(".template").forEach(button=>{
+  button.addEventListener("click",()=>{
+   currentTemplate=Number(button.dataset.index);
+   renderTemplates();
+   updatePreview();
+  });
+ });
 }
 
-document.querySelectorAll(".cat").forEach(btn => {
-  btn.addEventListener("click",()=>{
-    category = btn.dataset.cat;
-    document.querySelectorAll(".cat").forEach(b=>b.classList.toggle("active",b===btn));
-    updateCard();
+function updatePreview(){
+ const data=occasions[currentCategory];
+ $("invite").className="invite "+data.styles[currentTemplate];
+ $("eyebrow").textContent=data.eyebrow;
+ $("previewIcon").textContent=data.icons[currentTemplate];
+ $("previewName").textContent=$("name").value||"Your Name";
+ $("subtitle").textContent=data.subtitle;
+ $("details").textContent=
+  "Date: "+($("date").value||"To be announced")+
+  "\nTime: "+($("time").value||"To be announced")+
+  "\nVenue: "+($("venue").value||"To be announced");
+ $("previewMessage").textContent=$("message").value;
+}
+
+document.querySelectorAll(".category").forEach(button=>{
+ button.addEventListener("click",()=>{
+  currentCategory=button.dataset.cat;
+  currentTemplate=0;
+  document.querySelectorAll(".category").forEach(b=>{
+   b.classList.toggle("active",b===button);
   });
+  $("name").value=currentCategory==="Birthday"?"Sophia":
+   currentCategory==="Wedding"?"Ayesha & Ahmed":"Sara & Ali";
+  $("message").value=occasions[currentCategory].message;
+  renderTemplates();
+  updatePreview();
+ });
 });
 
-["host","date","venue","message","style"].forEach(id=>{
-  $(id).addEventListener("input",updateCard);
-  $(id).addEventListener("change",updateCard);
+["name","date","time","venue","message"].forEach(id=>{
+ $(id).addEventListener("input",updatePreview);
 });
 
-$("download").addEventListener("click",()=>{
-  const card = $("card");
-  const style = $("style").value;
-  const bg = style === "green" ? "#123b31" : style === "dark" ? "#302538" : "#fff4f4";
-  const fg = style === "green" ? "#f7df9e" : style === "dark" ? "#ffe4c2" : "#752b45";
-  const title = $("heading").textContent;
-  const names = $("names").textContent;
-  const message = $("messagePreview").textContent;
-  const details = $("details").textContent;
-  const flower = $("flower").textContent;
-  const eyebrow = $("eyebrow").textContent;
-  const esc = s => s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&apos;"}[c]));
-  const wrap = (text,max) => {
-    const words = text.split(/\s+/), lines=[];
-    let line="";
-    words.forEach(word=>{
-      if((line+" "+word).trim().length>max && line){lines.push(line);line=word;}
-      else line=(line+" "+word).trim();
-    });
-    if(line) lines.push(line);
-    return lines;
-  };
-  const textLines = (text,y,size,max,lineHeight) =>
-    wrap(text,max).map(line=>{
-      const out=`<text x="400" y="${y}" text-anchor="middle" font-size="${size}">${esc(line)}</text>`;
-      y+=lineHeight;
-      return out;
-    }).join("");
-  const msg = wrap(message,38);
-  const det = details.split("\n").flatMap(line=>wrap(line,35));
-  let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1100" viewBox="0 0 800 1100">
-  <rect width="800" height="1100" fill="${bg}"/>
-  <rect x="32" y="32" width="736" height="1036" rx="8" fill="none" stroke="#d7b56d" stroke-width="5"/>
-  <rect x="48" y="48" width="704" height="1004" rx="6" fill="none" stroke="#d7b56d" stroke-width="1.5"/>
-  <g fill="${fg}" text-anchor="middle" font-family="Georgia,serif">
-  <text x="400" y="160" font-size="58">${esc(flower)}</text>
-  <text x="400" y="230" font-family="Arial,sans-serif" font-size="22" letter-spacing="5">${esc(eyebrow.toUpperCase())}</text>
-  ${textLines(title,340,58,23,70)}
-  ${textLines(names,510,43,27,55)}
-  ${msg.map((line,i)=>`<text x="400" y="${610+i*32}" font-family="Arial,sans-serif" font-size="23">${esc(line)}</text>`).join("")}
-  ${det.map((line,i)=>`<text x="400" y="${790+i*38}" font-family="Arial,sans-serif" font-size="24">${esc(line)}</text>`).join("")}
-  <text x="400" y="990" font-size="38">✦ ❀ ✦</text>
-  </g></svg>`;
-  const blob = new Blob([svg],{type:"image/svg+xml;charset=utf-8"});
-  const url = URL.createObjectURL(blob);
-  const img = new Image();
-  img.onload = ()=>{
-    const canvas = document.createElement("canvas");
-    canvas.width=800; canvas.height=1100;
-    const ctx=canvas.getContext("2d");
-    ctx.drawImage(img,0,0);
-    URL.revokeObjectURL(url);
-    canvas.toBlob(png=>{
-      const link=document.createElement("a");
-      link.download="rose-bouquet-invitation.png";
-      link.href=URL.createObjectURL(png);
-      link.click();
-      setTimeout(()=>URL.revokeObjectURL(link.href),1500);
-    },"image/png");
-  };
-  img.onerror=()=>{URL.revokeObjectURL(url);alert("Download failed. Please try again.");};
-  img.src=url;
+/* Create a gentle, simple ambient tune with Web Audio.
+   No external audio file is required. User must press Play. */
+function stopMusic(){
+ if(musicTimer){clearInterval(musicTimer);musicTimer=null}
+ musicNodes.forEach(node=>{
+  try{node.stop()}catch(e){}
+  try{node.disconnect()}catch(e){}
+ });
+ musicNodes=[];
+ musicPlaying=false;
+ $("musicButton").textContent="♫ Play Soft Music";
+}
+
+function playSoftMusic(){
+ const AudioCtx=window.AudioContext||window.webkitAudioContext;
+ if(!AudioCtx){
+  alert("Your browser does not support this music feature.");
+  return;
+ }
+ if(!audioContext) audioContext=new AudioCtx();
+ audioContext.resume().then(()=>{
+  if(musicPlaying){stopMusic();return}
+  musicPlaying=true;
+  $("musicButton").textContent="Ⅱ Pause Music";
+  const notes=[261.63,329.63,392.00,329.63,293.66,349.23,440.00,349.23];
+  let index=0;
+
+  function playNote(){
+   if(!musicPlaying)return;
+   const now=audioContext.currentTime;
+   const osc=audioContext.createOscillator();
+   const gain=audioContext.createGain();
+   const volume=audioContext.createGain();
+   osc.type="sine";
+   osc.frequency.value=notes[index%notes.length];
+   gain.gain.setValueAtTime(0.0001,now);
+   gain.gain.exponentialRampToValueAtTime(0.035,now+0.4);
+   gain.gain.exponentialRampToValueAtTime(0.0001,now+2.2);
+   osc.connect(gain);
+   gain.connect(volume);
+   volume.connect(audioContext.destination);
+   osc.start(now);
+   osc.stop(now+2.25);
+   musicNodes.push(osc);
+   musicNodes=musicNodes.slice(-4);
+   index++;
+  }
+
+  playNote();
+  musicTimer=setInterval(playNote,1600);
+ }).catch(()=>{
+  alert("Music could not start. Please try pressing Play again.");
+ });
+}
+$("musicButton").addEventListener("click",()=>{
+ if(musicPlaying)stopMusic();
+ else playSoftMusic();
+});
+
+$("download").addEventListener("click",async()=>{
+ const button=$("download");
+ if(typeof html2canvas==="undefined"){
+  alert("PNG export library did not load. Check your internet connection and refresh the page.");
+  return;
+ }
+ button.disabled=true;
+ button.textContent="Preparing PNG...";
+ try{
+  const canvas=await html2canvas($("invite"),{
+   scale:3,
+   backgroundColor:null,
+   logging:false,
+   useCORS:true
+  });
+  const link=document.createElement("a");
+  link.download="rose-bouquet-"+currentCategory.toLowerCase()+"-invitation.png";
+  link.href=canvas.toDataURL("image/png");
+  link.click();
+ }catch(error){
+  alert("Could not export the card. Please refresh the page and try again.");
+ }finally{
+  button.disabled=false;
+  button.textContent="⬇ Download PNG";
+ }
 });
 
 $("whatsapp").addEventListener("click",()=>{
-  const text = `${$("heading").textContent}\n${$("names").textContent}\n${$("date").value}\n${$("venue").value}\n${$("message").value}\n\nMade with Rose Bouquet Cards`;
-  window.open("https://wa.me/?text="+encodeURIComponent(text),"_blank","noopener");
+ const text=
+  "🌹 "+occasions[currentCategory].subtitle+" 🌹\n\n"+
+  $("name").value+"\n\n"+
+  "📅 Date: "+$("date").value+"\n"+
+  "⏰ Time: "+$("time").value+"\n"+
+  "📍 Venue: "+$("venue").value+"\n\n"+
+  $("message").value+"\n\n"+
+  "Created with Rose Bouquet Cards 🌹";
+ window.open("https://wa.me/?text="+encodeURIComponent(text),"_blank","noopener");
 });
 
-$("year").textContent = new Date().getFullYear();
-updateCard();
+/* Subtle decorative falling petals */
+const petalContainer=$("petals");
+["🌸","🌹","🌺","♡"].forEach((symbol,i)=>{
+ const petal=document.createElement("span");
+ petal.className="petal";
+ petal.textContent=symbol;
+ petal.style.left=(8+i*23)+"%";
+ petal.style.animationDuration=(17+i*4)+"s";
+ petal.style.animationDelay=(-i*4)+"s";
+ petal.style.fontSize=(15+i*4)+"px";
+ petalContainer.appendChild(petal);
+});
+
+window.addEventListener("pagehide",stopMusic);
+renderTemplates();
+updatePreview();
 </script>
 </body>
 </html>
