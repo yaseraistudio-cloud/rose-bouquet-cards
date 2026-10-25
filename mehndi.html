@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rose Bouquet Cards | Luxury Invitation Studio</title>
+<meta name="description" content="Create beautiful personalized birthday, wedding and engagement invitations with music.">
+<style>
+:root{--wine:#4a1027;--rose:#b83c61;--gold:#d9b56d;--cream:#fff8f4;--ink:#321725;--muted:#806875;--line:#f0dce1}
+*{box-sizing:border-box}body{margin:0;background:#fff9f7;color:var(--ink);font-family:Georgia,'Times New Roman',serif}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0}
+header{background:linear-gradient(115deg,#310b1c,#791f3d 60%,#3a1023);color:#fff;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--gold)}
+.brand{font-size:clamp(22px,3vw,32px);letter-spacing:.4px}.brand span{color:#f1d49a}.tagline{font:12px Arial,sans-serif;color:#f7dfe6;margin-top:5px;letter-spacing:1.5px;text-transform:uppercase}
+.header-pill{font:12px Arial,sans-serif;border:1px solid #d9b56d99;border-radius:30px;padding:9px 14px;color:#f9e7c1}
+.hero{text-align:center;padding:48px 18px 30px;background:radial-gradient(ellipse at top,#fff 0,#fff6f2 60%,#f9e7e8 100%);position:relative;overflow:hidden}
+.hero:before,.hero:after{content:"❀";position:absolute;color:#e9c8d0;font-size:100px;opacity:.25}.hero:before{left:3%;top:10px}.hero:after{right:4%;bottom:0}
+.eyebrow{font:12px Arial,sans-serif;letter-spacing:3px;text-transform:uppercase;color:#a44a67}.hero h1{font-size:clamp(32px,5vw,54px);font-weight:normal;margin:12px 0;color:#54152c}.hero p{font:15px/1.7 Arial,sans-serif;color:#866875;max-width:650px;margin:0 auto}
+main{max-width:1250px;margin:auto;padding:24px 18px 60px}.section-title{text-align:center;font-size:26px;font-weight:normal;margin:12px 0 6px}.section-sub{text-align:center;font:13px Arial,sans-serif;color:var(--muted);margin:0 0 20px}
+.categories{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:18px 0 24px}.cat{padding:12px 20px;border:1px solid #e8cbd4;background:white;border-radius:30px;color:#7c3851}.cat.active{background:var(--wine);color:#fff;border-color:var(--wine);box-shadow:0 5px 15px #4a102722}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.9fr);gap:22px;align-items:start}.panel{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:0 12px 35px #55192a0b}.panel h2{font-size:22px;font-weight:normal;margin:0 0 6px}.hint{font:12px/1.5 Arial,sans-serif;color:#8e7881;margin:0 0 17px}
+.templates{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.template{padding:0;border:2px solid transparent;background:#fff8f5;border-radius:13px;overflow:hidden;text-align:left;color:var(--ink)}.template.selected{border-color:#b64b6b;box-shadow:0 0 0 2px #b64b6b22}.template-art{height:125px;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding:8px}.template-art:before{content:"";position:absolute;inset:7px;border:1px solid #e4c27d99;border-radius:45% 45% 10px 10px}.template-art .art-rose{position:absolute;font-size:33px;filter:drop-shadow(0 4px 5px #0003)}.template-art .r1{left:7px;top:8px}.template-art .r2{right:8px;bottom:7px}.template-art .art-text{z-index:1;font-size:15px;line-height:1.25;text-shadow:0 2px 4px #0004}.template small{display:block;font:11px Arial,sans-serif;padding:9px;color:#714354}
+.art-wine{background:radial-gradient(circle at 50% 35%,#9d425e,#4a0e28 70%);color:#ffe5ac}.art-pink{background:radial-gradient(circle at 40% 25%,#ffdfeb,#b7466c 65%,#4d122b);color:#fff8ef}.art-gold{background:radial-gradient(circle at 50% 30%,#f8e2a9,#a86c4b 60%,#3f1628);color:#fff3d1}.art-ivory{background:radial-gradient(circle at 50% 30%,#fffdf4,#e8c9b8 65%,#8b4355);color:#71304a}.art-purple{background:radial-gradient(circle at 50% 30%,#9e8acb,#442c69 70%);color:#fff1df}.art-red{background:radial-gradient(circle at 50% 30%,#ee7d82,#871d39 65%,#350c20);color:#ffe8b6}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}.field label{font:12px Arial,sans-serif;color:#775765}.field input,.field textarea,.field select{width:100%;border:1px solid #ead7dd;border-radius:10px;padding:11px 12px;background:#fffdfc;color:#3c1d2b;outline-color:#bd6c83}.field textarea{resize:vertical;min-height:75px}
+.music-list{display:grid;gap:8px}.track{display:flex;align-items:center;gap:10px;border:1px solid #ecdce1;border-radius:12px;padding:10px}.track input{accent-color:#8d2948}.track-info{flex:1;min-width:0}.track-info strong{display:block;font:13px Arial,sans-serif;color:#53233a}.track-info small{display:block;font:11px Arial,sans-serif;color:#927d86;margin-top:3px}.track button{background:#f8e8ed;color:#742843;border-radius:20px;padding:8px 10px;font:11px Arial,sans-serif}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}.btn{padding:12px 15px;border-radius:10px;font:13px Arial,sans-serif;font-weight:bold}.primary{background:linear-gradient(120deg,#7e1e3e,#bd4d6d);color:white;box-shadow:0 6px 16px #8c2d4b25}.secondary{background:#fff6f4;color:#6f2942;border:1px solid #e6c5cf}.dark{background:#34101f;color:#fff}
+.status{font:12px/1.5 Arial,sans-serif;color:#805d6c;margin-top:12px;min-height:18px}
+.preview-wrap{position:sticky;top:15px}.preview-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.preview-label h2{font-size:22px;font-weight:normal;margin:0}.live{font:10px Arial,sans-serif;color:#4d815e;border:1px solid #cce5d1;border-radius:20px;padding:6px 9px}
+.invite{min-height:540px;aspect-ratio:9/14;max-height:690px;position:relative;overflow:hidden;border-radius:18px;color:#fff4dc;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px 22px;background:radial-gradient(ellipse at 50% 32%,#8f3753 0,#4d102b 48%,#210817 100%);box-shadow:0 18px 40px #40102035;isolation:isolate}
+.invite:before{content:"";position:absolute;inset:12px;border:1px solid #e8ca86aa;border-radius:46% 46% 12px 12px;z-index:-1}
+.invite:after{content:"";position:absolute;inset:-20%;background:radial-gradient(circle at 15% 20%,#f4d9a933 0 2px,transparent 4px),radial-gradient(circle at 80% 70%,#f4d9a933 0 2px,transparent 4px),radial-gradient(circle at 70% 15%,#f4d9a933 0 2px,transparent 4px);background-size:65px 65px;animation:glimmer 9s linear infinite;z-index:-1}
+@keyframes glimmer{from{transform:translateY(-20px)}to{transform:translateY(20px)}}
+.invite .petal{position:absolute;top:-30px;font-size:20px;animation:fall 8s linear infinite;opacity:.75;pointer-events:none}.invite .p1{left:15%;animation-delay:-3s}.invite .p2{left:76%;animation-delay:-6s}.invite .p3{left:46%;animation-delay:-1s}.invite .p4{left:88%;animation-delay:-4s}
+@keyframes fall{0%{transform:translateY(-20px) rotate(0)}100%{transform:translateY(700px) rotate(360deg)}}
+.scene{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}.scene .prop{position:absolute;filter:drop-shadow(0 10px 8px #0004);animation:sceneFloat 4s ease-in-out infinite}.scene .prop.big{font-size:76px}.scene .prop.small{font-size:42px}.scene .curtain{position:absolute;top:0;bottom:0;width:24%;background:repeating-linear-gradient(90deg,#4b071a,#8e1835 12px,#5b0b22 25px);box-shadow:inset -8px 0 15px #18040b88;animation:curtain 6s ease-in-out infinite alternate}.scene .curtain.left{left:0}.scene .curtain.right{right:0;transform:scaleX(-1)}.scene .stage{position:absolute;left:7%;right:7%;bottom:12%;height:19%;border-radius:50% 50% 8px 8px;background:linear-gradient(#d9b46d,#6b253b);box-shadow:0 0 30px #ffd98066}.scene .bridegroom{position:absolute;bottom:19%;left:50%;transform:translateX(-50%);font-size:72px;filter:drop-shadow(0 6px 5px #0005);animation:coupleWalk 4s ease-in-out infinite}.scene .giftbox{position:absolute;left:50%;top:17%;transform:translateX(-50%);font-size:96px;animation:giftPop 3s ease-in-out infinite}.scene .cake{position:absolute;left:50%;top:17%;transform:translateX(-50%);font-size:86px;animation:sceneFloat 2s ease-in-out infinite}.scene .balloons{position:absolute;left:8%;right:8%;top:8%;font-size:48px;letter-spacing:8px;animation:balloonFloat 5s ease-in-out infinite}.scene .flowerbox{position:absolute;left:50%;top:13%;transform:translateX(-50%);font-size:86px;animation:giftPop 4s ease-in-out infinite}.scene .letter{position:absolute;left:50%;top:18%;transform:translateX(-50%);font-size:88px;animation:letterOpen 4s ease-in-out infinite}.scene .rings{position:absolute;left:50%;top:17%;transform:translateX(-50%);font-size:80px;animation:ringPulse 3s ease-in-out infinite}.scene .lanterns{position:absolute;top:9%;left:8%;right:8%;font-size:38px;letter-spacing:12px;animation:lanternRise 6s linear infinite}.scene .florals{position:absolute;top:8%;left:4%;right:4%;font-size:42px;display:flex;justify-content:space-between;animation:sceneFloat 4s ease-in-out infinite}.scene .book{position:absolute;left:50%;top:16%;transform:translateX(-50%);font-size:84px;animation:bookOpen 4s ease-in-out infinite}.invite>*:not(.scene){position:relative;z-index:1}.invite .topline{font:10px Arial,sans-serif;letter-spacing:4px;text-transform:uppercase;color:#f0d39a;margin-bottom:22px}.invite .rose-icon{font-size:54px;filter:drop-shadow(0 8px 12px #0005);margin:0 0 15px;animation:bloom 4s ease-in-out infinite}.invite h3{font-size:clamp(27px,3vw,39px);font-weight:normal;line-height:1.12;margin:7px 0;color:#ffe8b4;text-shadow:0 3px 14px #0007;overflow-wrap:anywhere}.invite .invite-line{font-size:14px;font-style:italic;margin:10px 0;color:#fff0e5}.invite .names{font-size:clamp(23px,2.6vw,34px);color:#fff8f0;line-height:1.3;overflow-wrap:anywhere}.invite .rule{width:90px;height:1px;background:linear-gradient(90deg,transparent,#edcf8c,transparent);margin:17px auto}.invite .details{font:12px/1.9 Arial,sans-serif;white-space:pre-line;color:#f9e8de;max-width:100%;overflow-wrap:anywhere}.invite .message{font-size:13px;font-style:italic;line-height:1.6;max-width:300px;margin-top:16px;color:#f9dfce}.invite .bottom{font:9px Arial,sans-serif;letter-spacing:3px;margin-top:22px;color:#e6c57f;text-transform:uppercase}
+
+/* Distinct scene accents: preserve each template's own visual story across categories. */
+.scene .occasion-cue{top:43%;font-size:35px;z-index:2;animation:sceneFloat 2.8s ease-in-out infinite}
+.scene .cue-left{left:8%}.scene .cue-right{right:8%;animation-delay:-1.2s}
+.scene .curtain{transform-origin:top center}
+.scene .stage:before,.scene .stage:after{content:"✦";position:absolute;top:-25px;color:#ffe7a6;font-size:26px;text-shadow:0 0 15px #ffda83}
+.scene .stage:before{left:22%}.scene .stage:after{right:22%}
+.scene .giftbox:after{content:"✦ ✨ ✦";display:block;font-size:22px;text-align:center;color:#ffe7a6;animation:giftPop 2s ease-in-out infinite}
+/* 24 genuinely different invitation compositions */
+.invite{transition:background .35s,border-radius .35s;}
+.invite:before{transition:all .35s}
+.invite.theme-wine{background:radial-gradient(ellipse at 50% 25%,#8c2547,#260717 76%)}
+.invite.theme-pink{background:linear-gradient(145deg,#ffe0eb,#c95b87 48%,#6e1e45)}
+.invite.theme-pink:before{inset:28px 18px;border-radius:48% 48% 8px 8px;border:2px solid #ffe9f2}
+.invite.theme-gold{background:linear-gradient(135deg,#f0d49a,#98613c 48%,#35141f)}
+.invite.theme-gold:before{inset:18px;border:3px double #ffe6a4;border-radius:3px}
+.invite.theme-ivory{background:linear-gradient(160deg,#fff8e9,#e4c6ad 55%,#986276);color:#62354a}
+.invite.theme-ivory:before{inset:24px;border:1px solid #a77a55;border-radius:3px}
+.invite.theme-purple{background:radial-gradient(circle at 50% 18%,#b6a4eb,#4c2b70 58%,#1d102e)}
+.invite.theme-purple:before{inset:22px 34px;border:1px solid #ead7ff;border-radius:48% 48% 4px 4px}
+.invite.theme-red{background:radial-gradient(circle at 50% 35%,#ff7e84,#94152f 52%,#300616)}
+.invite.theme-red:before{inset:16px;border:4px double #f4c7a2;border-radius:6px}
+.invite.theme-gift{background:linear-gradient(135deg,#ffced9,#b81f52 48%,#4b0828)}
+.invite.theme-gift:before{inset:0 39% 0;border:0;border-left:12px solid #f5d27d;border-right:12px solid #f5d27d;border-radius:0;background:linear-gradient(90deg,#fff0 0 35%,#f5d27d44 35% 65%,#fff0 65%)}
+.invite.theme-letter{background:linear-gradient(155deg,#fff4df,#d8a6a5 55%,#754052);color:#59263b}
+.invite.theme-letter:before{inset:9% 8%;border:2px dashed #9d6c5e;border-radius:4px;transform:rotate(-1deg)}
+.invite.theme-rings{background:radial-gradient(circle at 50% 28%,#f5e9c9,#a98c60 40%,#202e45 100%)}
+.invite.theme-rings:before{inset:22px;border:5px double #f5d98b;border-radius:50%}
+.invite.theme-candle{background:radial-gradient(ellipse at 50% 35%,#a85c27,#3b1722 52%,#140c17)}
+.invite.theme-candle:before{inset:12px;border:1px solid #f6b65c;border-radius:8px;box-shadow:inset 0 0 45px #ffb44822,0 0 35px #ffb44822}
+.invite.theme-pearl{background:radial-gradient(circle,#fffdf5,#e7d8ce 60%,#bda2a0);color:#654252}
+.invite.theme-pearl:before{inset:17px;border:7px dotted #fff8ee;border-radius:35px}
+.invite.theme-garden{background:linear-gradient(135deg,#b9c8a2,#42664b 55%,#173c34)}
+.invite.theme-garden:before{inset:18px 30px;border:2px solid #d6e0b4;border-radius:50% 50% 4px 4px}
+.invite.theme-night{background:radial-gradient(circle at 50% 15%,#394f94,#11172f 55%,#080d20)}
+.invite.theme-night:before{inset:20px;border:1px solid #a9c8ff;border-radius:4px;box-shadow:0 0 24px #92baff44}
+.invite.theme-butterfly{background:linear-gradient(145deg,#d9b9ff,#7951b3 55%,#30204e)}
+.invite.theme-butterfly:before{inset:28px 12px;border:2px dashed #f4ddff;border-radius:46% 46% 10px 10px}
+.invite.theme-sakura{background:linear-gradient(160deg,#fff0f4,#e7a3b8 54%,#86415e)}
+.invite.theme-sakura:before{inset:12px 25px;border:1px solid #fff5f7;border-radius:0 0 48% 48%}
+.invite.theme-royalblue{background:linear-gradient(145deg,#315f9c,#102a52 58%,#07152c)}
+.invite.theme-royalblue:before{inset:18px;border:3px double #f1d17a;border-radius:3px}
+.invite.theme-terracotta{background:linear-gradient(180deg,#f4b17b 0%,#c96d56 42%,#632f40 43%,#32172e 100%)}
+.invite.theme-terracotta:before{inset:28px 16px;border:1px solid #ffdfbd;border-radius:120px 120px 5px 5px}
+.invite.theme-birthday{background:radial-gradient(circle at 50% 28%,#ffb6d2,#ed4e8b 48%,#571849)}
+.invite.theme-birthday:before{inset:14px;border:3px dashed #ffe7a6;border-radius:18px}
+.invite.theme-balloon{background:linear-gradient(145deg,#70d8d4,#487bd1 48%,#53357f)}
+.invite.theme-balloon:before{inset:22px;border:2px solid #fff;border-radius:12px 70px 12px 70px}
+.invite.theme-disco{background:radial-gradient(circle at 50% 20%,#6d368d,#17102b 60%,#090712)}
+.invite.theme-disco:before{inset:16px;border:2px dotted #ffdc8b;border-radius:8px;box-shadow:inset 0 0 45px #e46fff22}
+.invite.theme-minimal{background:#f8f3e9;color:#332b30}
+.invite.theme-minimal:before{inset:35px;border:1px solid #322a30;border-radius:0}
+.invite.theme-watercolor{background:radial-gradient(ellipse at 18% 18%,#e9c2e0 0 13%,transparent 40%),radial-gradient(ellipse at 85% 80%,#a7d5cb 0 15%,transparent 43%),#fff5ed;color:#594252}
+.invite.theme-watercolor:before{inset:12px;border:1px solid #c8a2b5;border-radius:45% 12% 45% 12%}
+.invite.theme-emerald{background:linear-gradient(135deg,#1c6a53,#073a32 55%,#031e22)}
+.invite.theme-emerald:before{inset:20px;border:2px solid #d9bf76;border-radius:3px;box-shadow:inset 0 0 0 5px #d9bf7622}
+.invite.theme-champagne{background:radial-gradient(ellipse at 50% 20%,#f9e7bd,#bd8d62 48%,#5b293a)}
+.invite.theme-champagne:before{inset:24px;border:2px solid #fff0c9;border-radius:50% 50% 8px 8px}
+.invite.theme-ivory .topline,.invite.theme-ivory h3,.invite.theme-ivory .names,.invite.theme-ivory .details,.invite.theme-ivory .message,.invite.theme-minimal .topline,.invite.theme-minimal h3,.invite.theme-minimal .names,.invite.theme-minimal .details,.invite.theme-minimal .message,.invite.theme-watercolor h3,.invite.theme-watercolor .names,.invite.theme-watercolor .details,.invite.theme-watercolor .message{color:inherit;text-shadow:none}
+
+.invite.theme-pink{background:radial-gradient(ellipse at 50% 30%,#ed9cb3,#a62f5b 54%,#4c102d)}.invite.theme-gold{background:radial-gradient(ellipse at 50% 30%,#b88755,#5a2937 58%,#260d1b)}.invite.theme-ivory{background:radial-gradient(ellipse at 50% 30%,#fff1d8,#c78b91 55%,#63243c);color:#fff}.invite.theme-purple{background:radial-gradient(ellipse at 50% 30%,#9e8acb,#4b2d69 55%,#1e102c)}.invite.theme-red{background:radial-gradient(ellipse at 50% 30%,#f06c77,#8a1736 55%,#290816)}
+@keyframes sceneFloat{0%,100%{translate:0 0;rotate:-2deg}50%{translate:0 -12px;rotate:2deg}}@keyframes curtain{0%{width:32%}100%{width:13%}}@keyframes coupleWalk{0%,100%{transform:translate(-50%,0)}50%{transform:translate(calc(-50% + 12px),-7px)}}@keyframes giftPop{0%,100%{translate:0 0;scale:1}50%{translate:0 -10px;scale:1.07}}@keyframes balloonFloat{0%,100%{translate:0 0}50%{translate:0 -18px}}@keyframes letterOpen{0%,100%{rotate:0deg;scale:1}50%{rotate:-5deg;scale:1.08}}@keyframes ringPulse{0%,100%{scale:1}50%{scale:1.12}}@keyframes lanternRise{0%{translate:0 25px;opacity:.3}50%{opacity:1}100%{translate:0 -40px;opacity:.4}}@keyframes bookOpen{0%,100%{rotate:0deg}50%{rotate:4deg}}@keyframes bloom{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+footer{text-align:center;padding:28px 16px;background:#35101f;color:#e8c8d2;font:12px/1.7 Arial,sans-serif}footer strong{font-family:Georgia,serif;color:#f3d69a;font-size:17px}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.preview-wrap{position:static}.invite{max-width:420px;margin:auto;min-height:560px}.templates{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:460px){.panel{padding:14px}.templates{grid-template-columns:repeat(2,minmax(0,1fr))}.template-art{height:115px}.fields{grid-template-columns:1fr}.field.full{grid-column:auto}.hero{padding-top:35px}.invite{min-height:520px}}
+
+/* VISUAL UPGRADE: make the chosen scene a prominent, separate hero area */
+.invite{justify-content:flex-start!important;padding:205px 22px 24px!important;gap:0}
+.invite:after{opacity:.8;background-size:48px 48px}
+.scene{z-index:1!important;inset:0 0 auto!important;height:205px!important;overflow:visible!important;mask-image:linear-gradient(to bottom,#000 0%,#000 72%,transparent 100%)}
+.scene .prop{z-index:2;filter:drop-shadow(0 8px 9px #0007);text-shadow:0 4px 10px #0006}
+.scene .prop.big,.scene .cake,.scene .giftbox,.scene .flowerbox,.scene .letter,.scene .rings,.scene .book{font-size:94px!important}
+.scene .balloons{font-size:45px!important;letter-spacing:5px!important;top:6%!important}
+.scene .florals{font-size:40px!important;top:9%!important}
+.scene .curtain{width:19%!important;animation:curtain 3s ease-in-out infinite alternate}
+.scene .stage{bottom:-2%!important;height:25%!important;left:10%!important;right:10%!important}
+.scene .bridegroom{bottom:0!important;font-size:66px!important}
+.scene .occasion-cue{top:56%!important;bottom:auto!important;font-size:34px!important;animation:sceneFloat 2.6s ease-in-out infinite}
+.scene .cue-left{left:8%!important}.scene .cue-right{right:8%!important}
+.invite>*:not(.scene){position:relative;z-index:3!important}
+.invite .topline{margin-bottom:8px!important;font-size:9px!important}
+.invite .rose-icon{font-size:38px!important;margin:0 0 5px!important}
+.invite h3{font-size:clamp(23px,2.7vw,34px)!important;margin:5px 0!important}
+.invite .invite-line{margin:6px 0!important;font-size:12px!important}
+.invite .names{font-size:clamp(21px,2.3vw,29px)!important}
+.invite .rule{margin:10px auto!important}
+.invite .details{font-size:11px!important;line-height:1.5!important}
+.invite .message{font-size:12px!important;line-height:1.45!important;margin-top:8px!important}
+.invite .bottom{margin-top:10px!important;font-size:9px!important}
+@media(max-width:700px){.invite{padding-top:190px!important}.scene{height:190px!important}.scene .prop.big,.scene .cake,.scene .giftbox,.scene .flowerbox,.scene .letter,.scene .rings,.scene .book{font-size:78px!important}}
+
+
+/* VISUAL REDESIGN v2: editorial luxury studio */
+:root{--wine:#321020;--rose:#d14f79;--gold:#e8c77c;--cream:#fff8f4;--ink:#29111e;--muted:#866a77;--line:#ead2da}
+body{background:linear-gradient(135deg,#f8e9ec 0%,#fffaf7 42%,#f1e2d9 100%);font-family:Georgia,'Times New Roman',serif}
+header{padding:22px max(5%,calc((100% - 1320px)/2));background:linear-gradient(115deg,#170811,#45152c 48%,#7c2545);box-shadow:0 8px 28px #38102326}
+.brand{font-size:clamp(25px,3.2vw,38px);letter-spacing:.6px}.brand:before{content:"";display:inline-block;width:34px;height:34px;margin-right:9px;vertical-align:-6px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff0c7,#d7a85b 38%,#69213b 70%);box-shadow:0 0 0 3px #e9ca8266}
+.hero{padding:62px 18px 52px;background:radial-gradient(ellipse at 50% 0%,#fff 0,#fff5f2 44%,#f1d8df 100%);border-bottom:1px solid #e6c6d0}
+.hero:before,.hero:after{font-size:150px;color:#d9a5b4;opacity:.22}
+.eyebrow{letter-spacing:4px;font-size:11px;color:#a33d61}
+.hero h1{font-size:clamp(38px,6vw,70px);letter-spacing:-1.4px;line-height:1.02;margin:18px auto 16px;max-width:900px;color:#401329}
+.hero p{font-size:15px;max-width:650px}
+main{max-width:1360px;padding:34px 22px 70px}
+.section-title{font-size:34px;color:#42142a;margin:10px 0}
+.section-sub{font-size:14px;margin-bottom:24px}
+.categories{gap:12px;margin:24px 0 32px}
+.cat{padding:13px 23px;border-radius:999px;border:1px solid #e1bdc9;box-shadow:0 4px 14px #6c1d3910;transition:.25s}
+.cat:hover{transform:translateY(-2px);box-shadow:0 9px 22px #6c1d3920}
+.cat.active{background:linear-gradient(120deg,#431329,#9f3156);box-shadow:0 8px 20px #6b183b2e}
+.layout{grid-template-columns:minmax(0,1fr) minmax(350px,.86fr);gap:26px}
+.panel{padding:25px;border:1px solid #ead3db;border-radius:24px;box-shadow:0 18px 48px #4b14200d}
+.panel h2{font-size:24px;color:#42152b}
+.hint{font-size:12px}
+.templates{grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.template{border-radius:16px;background:#fff;border:1px solid #f0dce2;box-shadow:0 5px 16px #4c1b2a0a;transition:transform .25s,box-shadow .25s}
+.template:hover{transform:translateY(-4px);box-shadow:0 12px 22px #4c1b2a17}
+.template.selected{border:2px solid #bd476b;box-shadow:0 0 0 3px #bd476b1c,0 10px 24px #4c1b2a15}
+.template-art{height:155px}
+.template-art:before{inset:10px;border-width:1.5px}
+.template small{font-size:12px;padding:11px 10px;background:#fffdfc}
+.fields{gap:14px}
+.field label{font-size:12px;font-weight:bold;letter-spacing:.2px}
+.field input,.field textarea,.field select{border:1px solid #e6cbd4;border-radius:12px;padding:13px;background:#fffdfd;box-shadow:inset 0 1px 2px #4a10270a}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:#bd5577;box-shadow:0 0 0 3px #bd55771c}
+.track{border-radius:14px;padding:12px;border-color:#ead4dc;background:#fffdfd}
+.btn{padding:13px 16px;border-radius:12px;transition:transform .2s,filter .2s}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.04)}
+.primary{background:linear-gradient(120deg,#7d1e42,#d05279);box-shadow:0 8px 20px #8c2d4b30}
+.preview-wrap{top:16px}
+.preview-label{margin-bottom:15px}
+.preview-label h2{font-size:25px}
+.live{background:#edf8ee;padding:7px 11px}
+.invite{min-height:650px;max-height:780px;aspect-ratio:9/14;border-radius:24px;box-shadow:0 28px 60px #4010204a;transition:background .4s}
+.invite:before{inset:18px}
+.invite .topline{letter-spacing:4px;font-size:11px}
+.invite .rose-icon{font-size:65px;margin-bottom:19px}
+.invite h3{font-size:clamp(30px,3.4vw,45px);margin:12px 0}
+.invite .names{font-size:clamp(27px,3vw,38px)}
+.invite .rule{width:125px;margin:21px auto}
+.invite .details{font-size:13px;line-height:1.9}
+.invite .message{font-size:14px;line-height:1.65;max-width:90%}
+footer{margin-top:20px;background:linear-gradient(110deg,#200a16,#53172f);border-top:2px solid #d7b56e}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.preview-wrap{position:static}.invite{max-width:460px;min-height:620px}.templates{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:460px){.hero{padding:42px 16px}.templates{grid-template-columns:repeat(2,minmax(0,1fr))}.template-art{height:130px}.panel{padding:16px}}
+
+
+/* TRUE TEMPLATE DIFFERENTIATION: each design changes the entire invitation, not only its accent color. */
+.invite{transition:background 0.35s,border-radius 0.35s;}
+.invite.theme-wine{background:radial-gradient(ellipse at 50% 20%,#8f2748 0,#4a0b24 48%,#170610 100%);border:7px double #d8b56f;border-radius:24px}
+.invite.theme-pink{background:radial-gradient(ellipse at 50% 10%,#fff1f6 0,#efb6cb 45%,#8d345b 100%);color:#6b2544;border:12px solid #f9e5ed;border-radius:48% 48% 18px 18px}
+.invite.theme-pink h3,.invite.theme-pink .names{color:#762847;text-shadow:none}.invite.theme-pink .topline,.invite.theme-pink .details,.invite.theme-pink .message,.invite.theme-pink .invite-line,.invite.theme-pink .bottom{color:#6e2a47}
+.invite.theme-gold{background:linear-gradient(135deg,#4a1d2a,#c39a4f 48%,#34131f);border:10px double #f5df9a;border-radius:6px}
+.invite.theme-ivory{background:linear-gradient(160deg,#fffdf4,#ead7bb 48%,#a66e79);border:12px solid #fff8e9;border-radius:6px;color:#623448}
+.invite.theme-ivory h3,.invite.theme-ivory .names{color:#633047;text-shadow:none}.invite.theme-ivory .topline,.invite.theme-ivory .details,.invite.theme-ivory .message,.invite.theme-ivory .invite-line,.invite.theme-ivory .bottom{color:#633047}
+.invite.theme-purple{background:radial-gradient(ellipse at 50% 0,#b4a0e6,#4c2c71 50%,#1a102c);border:3px solid #d6c1ff;border-radius:50px 50px 12px 12px}
+.invite.theme-red{background:radial-gradient(ellipse at 50% 35%,#c92c4b,#640d29 60%,#210614);border:12px solid #5d0c24;border-radius:4px;box-shadow:inset 0 0 0 3px #e4b66a,0 18px 40px #40102035}
+.invite.theme-gift{background:repeating-linear-gradient(135deg,#a40f4c 0 18px,#c92b66 18px 36px,#7d0d3d 36px 54px);border:12px solid #ffd9e7;border-radius:28px}
+.invite.theme-letter{background:linear-gradient(160deg,#fff7e5,#d9b78d 58%,#80506a);border:18px solid #f6e7c9;border-radius:8px;color:#4d293c}
+.invite.theme-letter h3,.invite.theme-letter .names{color:#4d293c;text-shadow:none}.invite.theme-letter .topline,.invite.theme-letter .details,.invite.theme-letter .message,.invite.theme-letter .invite-line,.invite.theme-letter .bottom{color:#4d293c}
+.invite.theme-rings{background:radial-gradient(circle at 50% 35%,#e9dfbf,#687c8d 42%,#142436 100%);border:3px solid #d9c47d;border-radius:50% 50% 18px 18px}
+.invite.theme-candle{background:radial-gradient(ellipse at 50% 38%,#b56a35,#4b211e 48%,#130d16);border:2px solid #dfaa65;border-radius:18px;box-shadow:inset 0 0 60px #f7a44b44,0 18px 40px #40102035}
+.invite.theme-pearl{background:radial-gradient(ellipse at 50% 25%,#fff,#eadce2 55%,#b9a0ad);border:14px double #fffdf5;border-radius:30px;color:#5e4352}
+.invite.theme-pearl h3,.invite.theme-pearl .names{color:#5e4352;text-shadow:none}.invite.theme-pearl .topline,.invite.theme-pearl .details,.invite.theme-pearl .message,.invite.theme-pearl .invite-line,.invite.theme-pearl .bottom{color:#5e4352}
+.invite.theme-garden{background:linear-gradient(160deg,#d5dfb4,#48745a 43%,#102f2a);border:8px solid #c9d5a0;border-radius:100px 100px 18px 18px}
+.invite.theme-night{background:radial-gradient(ellipse at 50% 20%,#344f91,#10172f 65%,#050813);border:2px solid #91b8ff;border-radius:4px}
+.invite.theme-butterfly{background:radial-gradient(ellipse at 50% 20%,#f4d9ff,#b69bdd 48%,#45305f);border:10px solid #ead7ff;border-radius:44% 44% 18px 18px}
+.invite.theme-sakura{background:linear-gradient(150deg,#fff8fa,#f8d6e0 52%,#a94e72);border:10px solid #fff4f7;border-radius:12px 12px 80px 80px;color:#6d2946}
+.invite.theme-sakura h3,.invite.theme-sakura .names{color:#6d2946;text-shadow:none}.invite.theme-sakura .topline,.invite.theme-sakura .details,.invite.theme-sakura .message,.invite.theme-sakura .invite-line,.invite.theme-sakura .bottom{color:#6d2946}
+.invite.theme-royalblue{background:linear-gradient(145deg,#173e75,#07172f 60%,#020914);border:10px double #d5b66d;border-radius:8px}
+.invite.theme-terracotta{background:linear-gradient(180deg,#f5c18e 0,#c86f58 40%,#743e4a 68%,#2e1b31 100%);border:8px solid #e9b782;border-radius:10px}
+.invite.theme-birthday{background:radial-gradient(circle at 50% 18%,#ffeb9f,#f58fbd 40%,#a52f74 78%,#4b164f);border:12px solid #ffe6a0;border-radius:28px;box-shadow:inset 0 0 0 4px #fff8e7,0 18px 40px #40102035}
+.invite.theme-balloon{background:linear-gradient(150deg,#5ddbd3,#5875c9 48%,#572e80);border:8px solid #baf8ed;border-radius:35px 35px 8px 8px}
+.invite.theme-disco{background:repeating-radial-gradient(circle at 50% 15%,#783ab0 0 10px,#241038 11px 26px,#090713 27px 42px);border:5px solid #e7b8ff;border-radius:18px;box-shadow:inset 0 0 60px #d74dff55,0 18px 40px #40102035}
+.invite.theme-minimal{background:#fbf8f1;border:1px solid #a69a8e;border-radius:0;color:#29262b;box-shadow:inset 0 0 0 12px #fbf8f1,inset 0 0 0 13px #b6a99a,0 18px 40px #40102020}
+.invite.theme-minimal h3,.invite.theme-minimal .names{color:#29262b;text-shadow:none}.invite.theme-minimal .topline,.invite.theme-minimal .details,.invite.theme-minimal .message,.invite.theme-minimal .invite-line,.invite.theme-minimal .bottom{color:#51464b}
+.invite.theme-watercolor{background:radial-gradient(ellipse at 15% 20%,#f5d7e8 0 16%,transparent 35%),radial-gradient(ellipse at 80% 32%,#b8e0d4 0 20%,transparent 40%),linear-gradient(145deg,#fff9f2,#d9e8d8);border:10px solid #fffdf8;border-radius:24px;color:#4a3b4c}
+.invite.theme-watercolor h3,.invite.theme-watercolor .names{color:#4a3b4c;text-shadow:none}.invite.theme-watercolor .topline,.invite.theme-watercolor .details,.invite.theme-watercolor .message,.invite.theme-watercolor .invite-line,.invite.theme-watercolor .bottom{color:#4a3b4c}
+.invite.theme-emerald{background:linear-gradient(145deg,#238267,#074637 45%,#031b20);border:12px double #c3a65d;border-radius:12px}
+.invite.theme-champagne{background:radial-gradient(ellipse at 50% 12%,#fff2c7,#c8a46e 48%,#613047);border:10px solid #f5e3ad;border-radius:50% 50% 14px 14px}
+/* Give each miniature a distinct silhouette and decorative treatment too. */
+.template-art.art-wine{background:radial-gradient(circle,#a5385b,#3c081e 75%)}.template-art.art-pink{background:linear-gradient(145deg,#fff0f6,#e99dbb,#8f345b)}.template-art.art-gold{background:linear-gradient(135deg,#ffe8a2,#b37b38,#381629)}.template-art.art-ivory{background:linear-gradient(135deg,#fffdf2,#ddc7a7)}.template-art.art-purple{background:radial-gradient(circle,#c3a9f3,#3c225d)}.template-art.art-red{background:linear-gradient(145deg,#f37e8a,#9e1238,#290719)}
+.template-art.art-gift{background:repeating-linear-gradient(45deg,#d72c70 0 12px,#8f1246 12px 24px);color:#fff}.template-art.art-letter{background:linear-gradient(135deg,#fff2d8,#d3b18c,#73425d);color:#4d293c}.template-art.art-rings{background:radial-gradient(circle,#d6c48c,#61768c,#172a40)}.template-art.art-candle{background:radial-gradient(circle,#c47b42,#45201e,#100b13)}.template-art.art-pearl{background:linear-gradient(135deg,#fff,#d9c6d0,#a28a9b);color:#5e4352}.template-art.art-garden{background:linear-gradient(135deg,#d9e2b9,#477653,#12352d)}.template-art.art-night{background:radial-gradient(circle,#385998,#080d20)}.template-art.art-butterfly{background:linear-gradient(135deg,#f5d8ff,#b69bdd,#45305f)}.template-art.art-sakura{background:linear-gradient(135deg,#fff7fa,#f3cad8,#a94e72);color:#6d2946}.template-art.art-royalblue{background:linear-gradient(135deg,#24518d,#07152c)}.template-art.art-terracotta{background:linear-gradient(180deg,#f6c58f,#c86f58,#3c2435)}.template-art.art-birthday{background:radial-gradient(circle,#ffe89a,#f48dbd,#9e2870)}.template-art.art-balloon{background:linear-gradient(135deg,#5ddbd3,#5875c9,#572e80)}.template-art.art-disco{background:repeating-radial-gradient(circle,#783ab0 0 6px,#100819 7px 16px)}.template-art.art-minimal{background:#fbf8f1;color:#29262b}.template-art.art-watercolor{background:radial-gradient(circle at 20% 20%,#f5d7e8,transparent 40%),radial-gradient(circle at 80% 60%,#b8e0d4,transparent 50%),#fff9f2;color:#4a3b4c}.template-art.art-emerald{background:linear-gradient(135deg,#238267,#031b20)}.template-art.art-champagne{background:radial-gradient(circle,#fff2c7,#c8a46e,#613047)}
+
+
+/* Asset-backed invitation gallery */
+.templates{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.template{box-shadow:0 5px 18px #5a1b2b0b;transition:transform .2s,box-shadow .2s}
+.template:hover{transform:translateY(-3px);box-shadow:0 12px 25px #5a1b2b18}
+.template-art{height:165px;background:#4a1027;isolation:isolate}
+.template-art .asset-thumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .4s}
+.template:hover .asset-thumb{transform:scale(1.05)}
+.template-art:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#14050a16 15%,#16040bd9 100%);z-index:-1}
+.template-art:before{z-index:0;pointer-events:none}
+.template-art .art-rose{z-index:2}
+.template-art .art-text{font-family:Georgia,serif;font-size:13px;position:relative;text-shadow:0 2px 8px #000b;max-width:95%;margin-top:20px}
+.template small{font-size:12px;font-weight:bold;line-height:1.35;min-height:36px;padding:10px 9px}
+.invite.asset-backed{background-size:cover;background-position:center;background-repeat:no-repeat}
+.invite.asset-backed:after{background:linear-gradient(180deg,#14030a25,#16030a88 48%,#16030acc)}
+.scene .asset-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.72;z-index:-1}
+.scene .asset-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.58;z-index:-1}
+.asset-note{font:11px Arial,sans-serif;color:#9a7a86;margin-top:8px}
+@media(max-width:600px){.templates{grid-template-columns:repeat(2,minmax(0,1fr))}.template-art{height:150px}}
+
+</style>
+</head>
+<body>
+<header><div><div class="brand">🌹 Rose <span>Bouquet</span> Cards</div><div class="tagline">Make every moment unforgettable</div></div><div class="header-pill">LUXURY DIGITAL INVITATIONS<br><small>FOLLOW US ON FACEBOOK &amp; INSTAGRAM</small></div></header>
+<section class="hero"><div class="eyebrow">THE DIGITAL INVITATION ATELIER</div><h1>Make your moment <em style="color:#bd4a70;font-weight:normal">unforgettable.</em></h1><p>Choose a cinematic scene, personalize every detail, add music, and share a keepsake made for your favourite people.</p><div style="text-align:center;padding:0 12px 22px;background:#fff6f2;font:12px Arial,sans-serif;color:#8d3452"><a href="https://www.facebook.com/" target="_blank" rel="noopener" style="color:inherit;margin:0 9px">Facebook</a><a href="https://www.instagram.com/rosebouquetcards/" target="_blank" rel="noopener" style="color:inherit;margin:0 9px">Instagram @rosebouquetcards</a><a href="https://wa.me/" target="_blank" rel="noopener" style="color:inherit;margin:0 9px">Order on WhatsApp</a></div>
+</section>
+<div style="padding:12px 20px;text-align:center;background:#fff8f5"><a href="index.html" style="color:#963f60;font:13px Arial;text-decoration:none">← All occasions</a></div><main>
+<div style="text-align:center;font:11px Arial,sans-serif;letter-spacing:3px;color:#a54b69;margin-bottom:8px">DESIGNED FOR YOUR BIG MOMENTS</div><h2 class="section-title">Choose your occasion</h2><p class="section-sub">Mehndi, Nikah, Barat, Walima, Engagement, Wedding or Birthday.</p>
+<div class="categories" id="categories"><a class="cat " href="mehndi.html" style="text-decoration:none;display:inline-block">🌿 Mehndi</a><a class="cat " href="nikah.html" style="text-decoration:none;display:inline-block">🌙 Nikah</a><a class="cat " href="barat.html" style="text-decoration:none;display:inline-block">🐎 Barat</a><a class="cat " href="walima.html" style="text-decoration:none;display:inline-block">🍽️ Walima</a><a class="cat active" href="engagement.html" style="text-decoration:none;display:inline-block">💍 Engagement</a><a class="cat " href="wedding.html" style="text-decoration:none;display:inline-block">🤍 Wedding</a><a class="cat " href="birthday.html" style="text-decoration:none;display:inline-block">🎂 Birthday</a></div>
+<div class="layout">
+<section class="panel">
+<h2>1. Choose a design</h2><p class="hint">Select a style. Your live invitation updates as you edit the details.</p>
+<div class="templates" id="templates"></div><p class="asset-note">Photo and video designs load directly from your GitHub repository. Keep the filenames unchanged when uploading.</p>
+<div style="height:22px"></div><h2>2. Personalize your invitation</h2><p class="hint">Fill in the details you want guests to see.</p>
+<div class="fields">
+<div class="field full"><label for="headline">Invitation heading</label><input id="headline" value="You're Invited"></div>
+<div class="field"><label for="name1">Name 1 / Celebrant</label><input id="name1" value="Ayesha"></div>
+<div class="field"><label for="name2">Name 2 (optional)</label><input id="name2" value="Hamza"></div>
+<div class="field"><label for="date">Date</label><input id="date" value="Saturday, 14 November 2026"></div>
+<div class="field"><label for="time">Time</label><input id="time" value="7:00 PM onwards"></div>
+<div class="field full"><label for="venue">Venue</label><input id="venue" value="The Rose Garden, Muscat"></div>
+<div class="field full"><label for="message">Personal message</label><textarea id="message">Your presence will make our special day even more beautiful.</textarea></div>
+</div>
+<div style="height:22px"></div><h2>3. Choose your music</h2><p class="hint">Select a track and press Preview to listen. Music files must be available in your website repository.</p>
+<div class="music-list" id="musicList"></div>
+<div class="actions"><button class="btn secondary" id="stopMusic">■ Stop music</button><button class="btn secondary" id="replayMusic">▶ Preview selected music</button></div>
+<div style="height:22px"></div><h2>4. Download or share</h2><p class="hint">Video export records the animated invitation and mixes the selected track where supported. Keep this page open while it renders.</p>
+<div class="actions"><button class="btn primary" id="downloadVideo">⬇ Create video</button><button class="btn secondary" id="downloadPng">⬇ Download PNG</button><button class="btn dark" id="shareWhatsApp">Share on WhatsApp</button></div>
+<div class="status" id="status" role="status">Ready to create your invitation.</div>
+</section>
+<section class="panel preview-wrap">
+<div class="preview-label"><h2>Live preview</h2><span class="live">● LIVE</span></div>
+<div class="invite" id="invite">
+<div class="scene" id="scene" aria-hidden="true"></div>
+<span class="petal p1">🌹</span><span class="petal p2">🌸</span><span class="petal p3">🌹</span><span class="petal p4">🌸</span>
+<div class="topline">A special invitation</div><div class="rose-icon" id="roseIcon">🌹</div><h3 id="pvHeadline">You're Invited</h3><div class="invite-line" id="pvLine">Together with our families</div><div class="names" id="pvNames">Ayesha &amp; Hamza</div><div class="rule"></div><div class="details" id="pvDetails">Saturday, 14 November 2026
+7:00 PM onwards
+The Rose Garden, Muscat</div><div class="message" id="pvMessage">Your presence will make our special day even more beautiful.</div><div class="bottom">With love • Save the date</div>
+</div>
+<p class="hint" style="text-align:center;margin:14px 0 0">Preview uses animated floral effects. Downloaded video is rendered from this invitation design.</p>
+</section>
+</div>
+</main>
+<footer><strong>Rose Bouquet Cards</strong><br>Made for your beautiful moments. Please verify music licensing and keep a copy of the track details for your records.</footer>
+<script>
+const $=id=>document.getElementById(id);
+const themes=[
+{id:'wine',name:'01 Royal Burgundy',art:'art-wine',cls:'theme-wine',rose:'🌹',shape:'arch',line:'Royal floral frame',asset:'Luxury_maroon_and_gold_invitation.jpg'},
+{id:'pink',name:'02 Blush Romance',art:'art-pink',cls:'theme-pink',rose:'🌸',shape:'oval',line:'Soft pink blossoms',asset:'Floral_wedding_invitation.jpg'},
+{id:'gold',name:'03 Golden Elegance',art:'art-gold',cls:'theme-gold',rose:'💐',shape:'gold',line:'Gold foil luxury',asset:'Luxury_invitation_card_background.jpg'},
+{id:'ivory',name:'04 Ivory Garden',art:'art-ivory',cls:'theme-ivory',rose:'🌷',shape:'garden',line:'Ivory botanical',asset:'Decorative_floral_invitation.jpg'},
+{id:'purple',name:'05 Lavender Dream',art:'art-purple',cls:'theme-purple',rose:'🪻',shape:'moon',line:'Lavender moonlight',asset:'Royal_Nikah_invitation_background.jpg',video:'Golden_lanterns_swaying.mp4'},
+{id:'red',name:'06 Red Rose Luxury',art:'art-red',cls:'theme-red',rose:'🥀',shape:'diamond',line:'Red rose romance'},
+{id:'gift',name:'07 Surprise Gift Box',art:'art-gift',cls:'theme-gift',rose:'🎁',shape:'gift',line:'Ribbon gift reveal',asset:'Luxury_invitation_card_background.jpg'},
+{id:'letter',name:'08 Love Letter',art:'art-letter',cls:'theme-letter',rose:'💌',shape:'letter',line:'Open envelope'},
+{id:'rings',name:'09 Wedding Rings',art:'art-rings',cls:'theme-rings',rose:'💍',shape:'rings',line:'Interlocked rings',asset:'Emerald_engagement_invitation.jpg'},
+{id:'candle',name:'10 Candlelight',art:'art-candle',cls:'theme-candle',rose:'🕯️',shape:'candle',line:'Warm candle glow'},
+{id:'pearl',name:'11 Pearl & Lace',art:'art-pearl',cls:'theme-pearl',rose:'🤍',shape:'lace',line:'Pearl lace details'},
+{id:'garden',name:'12 Secret Garden',art:'art-garden',cls:'theme-garden',rose:'🌿',shape:'leaves',line:'Green garden vines'},
+{id:'night',name:'13 Midnight Stars',art:'art-night',cls:'theme-night',rose:'✨',shape:'stars',line:'Starlit night sky'},
+{id:'butterfly',name:'14 Butterfly Bliss',art:'art-butterfly',cls:'theme-butterfly',rose:'🦋',shape:'butterfly',line:'Floating butterflies'},
+{id:'sakura',name:'15 Sakura Blossom',art:'art-sakura',cls:'theme-sakura',rose:'🌸',shape:'sakura',line:'Cherry blossom'},
+{id:'royalblue',name:'16 Sapphire Royal',art:'art-royalblue',cls:'theme-royalblue',rose:'👑',shape:'royal',line:'Sapphire and crown',asset:'Midnight_Walima_navy_gold.jpg'},
+{id:'terracotta',name:'17 Desert Sunset',art:'art-terracotta',cls:'theme-terracotta',rose:'🌅',shape:'sunset',line:'Warm sunset horizon'},
+{id:'birthday',name:'18 Birthday Party',art:'art-birthday',cls:'theme-birthday',rose:'🎂',shape:'cake',line:'Cake and confetti',asset:'Luxury_birthday_invitation.jpg'},
+{id:'balloon',name:'19 Balloon Celebration',art:'art-balloon',cls:'theme-balloon',rose:'🎈',shape:'balloons',line:'Colourful balloons',asset:'Luxury_birthday_invitation.jpg'},
+{id:'disco',name:'20 Glitter Disco',art:'art-disco',cls:'theme-disco',rose:'🪩',shape:'disco',line:'Sparkle party lights'},
+{id:'minimal',name:'21 Modern Minimal',art:'art-minimal',cls:'theme-minimal',rose:'✦',shape:'minimal',line:'Clean modern layout'},
+{id:'watercolor',name:'22 Watercolor Florals',art:'art-watercolor',cls:'theme-watercolor',rose:'🪷',shape:'watercolor',line:'Painted floral wash'},
+{id:'emerald',name:'23 Emerald Luxe',art:'art-emerald',cls:'theme-emerald',rose:'🍃',shape:'emerald',line:'Emerald velvet',asset:'Emerald_engagement_invitation.jpg'},
+{id:'champagne',name:'24 Champagne Toast',art:'art-champagne',cls:'theme-champagne',rose:'🥂',shape:'champagne',line:'Champagne celebration'}
+];
+const categories={
+mehndi:{heading:'Mehndi Celebration',line:'Colour, music and beautiful traditions',message:'Join us for an evening filled with colour, laughter and love.'},
+nikah:{heading:"You're Invited to Our Nikah",line:'A blessed beginning, two hearts united',message:'Please join our families as we celebrate this blessed occasion.'},
+barat:{heading:'The Barat Celebration',line:'A beautiful beginning together',message:'Your presence will make our wedding celebration unforgettable.'},
+walima:{heading:'Join Us for the Walima',line:'A celebration of love and togetherness',message:'We would be honoured to celebrate this joyful day with you.'},
+engagement:{heading:"You're Invited",line:'Together with our families',message:'Your presence will make our special day even more beautiful.'},
+wedding:{heading:'Join Us in Celebration',line:'Two hearts, one beautiful journey',message:'We would be honoured to celebrate our wedding day with you.'},
+birthday:{heading:"You're Invited!",line:'A celebration full of joy and love',message:'Come celebrate, laugh and make wonderful memories with us.'}
+};
+const tracks=[
+{title:'Romantic Wedding',sub:'Wedding invitation instrumental',file:'wedding-invitation.mp3'},
+{title:'Soft Wedding Piano',sub:'Romantic soft instrumental',file:'wedding.mp3'},
+{title:'Wedding Celebration',sub:'Wedding / ceremony music',file:'wedding 2.mp3'},
+{title:'Birthday Celebration',sub:'Happy birthday music',file:'happy-birthday.mp3'},
+{title:'Luxury Celebration',sub:'Celebration background music',file:'celebration.mp3'}
+];
+let category='mehndi',themeIndex=0,selectedTrack=0,audio=null;
+const templateContainer=$('templates');
+function renderTemplates(){
+ templateContainer.innerHTML='';
+ themes.forEach((t,i)=>{
+  const b=document.createElement('button');b.className='template'+(i===themeIndex?' selected':'');
+  b.innerHTML=`<div class="template-art ${t.art}">${t.asset?`<img class="asset-thumb" src="${t.asset}" alt="${t.name}" loading="lazy" onerror="this.remove()">`:''}${t.video?`<span style="position:absolute;top:8px;left:8px;background:#250a18d9;color:white;border-radius:20px;padding:5px 8px;font:10px Arial,sans-serif;z-index:3">▶ VIDEO</span>`:''}<span class="art-rose r1">${t.rose}</span><div class="art-text"><b>${t.rose}</b><br>${t.line}<br><span style="font-size:10px">${categories[category].heading}</span></div><span class="art-rose r2">${t.shape==='rings'?'💍':t.shape==='gift'?'🎀':t.shape==='cake'?'🎉':t.shape==='stars'?'⭐':t.rose}</span></div><small>${t.name}</small>`;
+  b.onclick=()=>{themeIndex=i;renderTemplates();applyTheme();updatePreview();$('status').textContent='Selected design: '+themes[themeIndex].name;};templateContainer.appendChild(b);
+ });
+}
+function applyTheme(){
+ const t=themes[themeIndex];$('invite').className='invite '+t.cls+(t.asset?' asset-backed':'');$('invite').style.backgroundImage=t.asset?`linear-gradient(180deg,#19040a22,#19040acc),url("${t.asset}")`:'';
+ $('roseIcon').textContent=t.rose;
+ const scene=$('scene');
+ const scenes={
+ birthday:'<div class="prop balloons">🎈 🎈 🎈</div><div class="prop cake">🎂</div><div class="prop small" style="left:12%;bottom:18%">🎁</div><div class="prop small" style="right:12%;bottom:18%">🎉</div>',
+ balloon:'<div class="prop balloons">🎈 🎈 🎈 🎈</div><div class="prop cake">🎂</div>',
+ gift:'<div class="prop giftbox">🎁</div><div class="prop small" style="left:12%;top:32%">✨</div><div class="prop small" style="right:12%;top:34%">🌹</div>',
+ letter:'<div class="prop letter">💌</div><div class="prop small" style="left:10%;top:35%">🌹</div><div class="prop small" style="right:10%;top:38%">🌸</div>',
+ rings:'<div class="prop rings">💍</div><div class="prop florals">🌹 <span>✨</span> 🌹</div>',
+ candle:'<div class="prop florals">🕯️ <span>🌹</span> 🕯️</div>',
+ wine:'<div class="prop florals">🌹 <span>🌿</span> 🌹</div>', red:'<div class="prop florals">🌹 <span>🌹</span> 🌹</div>', pink:'<div class="prop florals">🌸 <span>🌷</span> 🌸</div>', ivory:'<div class="prop florals">🤍 <span>🌿</span> 🤍</div>', sakura:'<div class="prop florals">🌸 <span>🌸</span> 🌸</div>', garden:'<div class="prop florals">🌿 <span>🌷</span> 🌿</div>', watercolor:'<div class="prop florals">🪷 <span>🌸</span> 🪷</div>', pearl:'<div class="prop florals">🤍 <span>🌷</span> 🤍</div>',
+ royalblue:'<div class="curtain left"></div><div class="curtain right"></div><div class="stage"></div><div class="prop bridegroom">👰🏻‍♀️🤵🏻</div>',
+ emerald:'<div class="prop florals">🌿 <span>🌹</span> 🌿</div><div class="prop small" style="left:15%;bottom:20%">🕯️</div><div class="prop small" style="right:15%;bottom:20%">🕯️</div>',
+ purple:'<div class="prop lanterns">🏮 ✨ 🏮</div><div class="prop small" style="left:15%;bottom:18%">🦋</div><div class="prop small" style="right:15%;bottom:18%">🦋</div>',
+ night:'<div class="prop lanterns">✨ 🌙 ✨</div><div class="prop small" style="left:15%;top:30%">⭐</div><div class="prop small" style="right:15%;top:40%">⭐</div>',
+ terracotta:'<div class="prop florals">🌅 <span>🌾</span> 🌅</div>',
+ butterfly:'<div class="prop small" style="left:13%;top:23%">🦋</div><div class="prop small" style="right:13%;top:33%">🦋</div><div class="prop small" style="left:20%;bottom:20%">🌸</div>',
+ disco:'<div class="prop cake">🪩</div><div class="prop small" style="left:12%;top:35%">✨</div><div class="prop small" style="right:12%;top:38%">🎉</div>',
+ champagne:'<div class="prop florals">🥂 <span>✨</span> 🥂</div>', gold:'<div class="prop book">📜</div><div class="prop florals">✨ <span>🌹</span> ✨</div>', minimal:'<div class="prop small" style="top:14%;left:calc(50% - 22px)">✦</div>',
+};
+ // Keep every template's own scene, regardless of selected occasion. Previously the occasion
+ // category replaced many templates with the same generic scene, making cards look alike.
+ scene.innerHTML=(t.video?`<video class="asset-video" src="${t.video}" autoplay muted loop playsinline></video>`:'')+(t.asset?`<img class="asset-image" src="${t.asset}" alt="" onerror="this.remove()">`:'')+(scenes[t.id]||scenes.rings);
+ $('invite').style.display='flex';
+ // Add only small occasion cues; never replace the selected design's main environment.
+ if(category==='birthday' && !['birthday','balloon','gift','disco'].includes(t.id)){
+   scene.insertAdjacentHTML('beforeend','<div class="prop small occasion-cue cue-left">🎈</div><div class="prop small occasion-cue cue-right">🎁</div>');
+ } else if(['wedding','nikah','barat','walima','mehndi'].includes(category) && !['royalblue','rings','wine','red','pink','ivory','gold','champagne','emerald','watercolor'].includes(t.id)){
+   scene.insertAdjacentHTML('beforeend','<div class="prop small occasion-cue cue-left">🌹</div><div class="prop small occasion-cue cue-right">🌹</div>');
+ } else if(category==='engagement' && !['rings','letter','gift'].includes(t.id)){
+   scene.insertAdjacentHTML('beforeend','<div class="prop small occasion-cue cue-left">💍</div><div class="prop small occasion-cue cue-right">✨</div>');
+ }
+}
+function updatePreview(){
+ const h=$('headline').value.trim()||categories[category].heading;
+ const n1=$('name1').value.trim(),n2=$('name2').value.trim();
+ $('pvHeadline').textContent=h;
+ $('pvLine').textContent=categories[category].line;
+ $('pvNames').textContent=n1+(n1&&n2?' & ':'')+n2;
+ $('pvDetails').textContent=[$('date').value.trim(),$('time').value.trim(),$('venue').value.trim()].filter(Boolean).join('\n');
+ $('pvMessage').textContent=$('message').value.trim();
+}
+function renderTracks(){
+ const wrap=$('musicList');wrap.innerHTML='';
+ tracks.forEach((t,i)=>{
+  const row=document.createElement('label');row.className='track';
+  row.innerHTML=`<input type="radio" name="track" value="${i}" ${i===selectedTrack?'checked':''}><span class="track-info"><strong>${t.title}</strong><small>${t.sub}</small></span><button type="button" data-play="${i}">▶ Preview</button>`;
+  row.querySelector('input').addEventListener('change',()=>{selectedTrack=i;});
+  row.querySelector('button').addEventListener('click',e=>{e.preventDefault();selectedTrack=i;row.querySelector('input').checked=true;playTrack(i);});
+  wrap.appendChild(row);
+ });
+}
+function stopTrack(){if(audio){audio.pause();audio.currentTime=0;audio=null;}}
+function trackUrl(i){return new URL(tracks[i].file,document.baseURI).href;}
+function playTrack(i){
+ stopTrack();audio=new Audio(trackUrl(i));audio.loop=true;
+ audio.play().then(()=>$('status').textContent='Playing: '+tracks[i].title).catch(()=>$('status').textContent='Music file could not be played. Check filename and upload path: '+tracks[i].file);
+}
+$('stopMusic').onclick=()=>{stopTrack();$('status').textContent='Music stopped.';};
+$('replayMusic').onclick=()=>playTrack(selectedTrack);
+$('categories').addEventListener('click',e=>{
+ const b=e.target.closest('button[data-cat]');if(!b)return;
+ category=b.dataset.cat;document.querySelectorAll('.cat').forEach(x=>x.classList.toggle('active',x===b));
+ $('headline').value=categories[category].heading;$('message').value=categories[category].message;
+ if(category==='birthday'){$('name1').value='Your Name';$('name2').value='';}
+ else {$('name1').value='Ayesha';$('name2').value='Hamza';}
+ renderTemplates();applyTheme();updatePreview();
+});
+['headline','name1','name2','date','time','venue','message'].forEach(id=>$(id).addEventListener('input',updatePreview));
+function canvasText(ctx,text,x,y,maxWidth,lineHeight){
+ const words=String(text||'').split(/\s+/);let line='';
+ for(let i=0;i<words.length;i++){const test=line?line+' '+words[i]:words[i];if(ctx.measureText(test).width>maxWidth&&line){ctx.fillText(line,x,y);line=words[i];y+=lineHeight;}else line=test;}
+ if(line)ctx.fillText(line,x,y);return y+lineHeight;
+}
+function drawVideoFrame(ctx,w,h,progress){
+ const t=themes[themeIndex],bg=({wine:['#8c2547','#260717'],pink:['#ffe0eb','#6e1e45'],gold:['#f0d49a','#35141f'],ivory:['#fff8e9','#986276'],purple:['#b6a4eb','#1d102e'],red:['#ff7e84','#300616'],gift:['#ffced9','#4b0828'],letter:['#fff4df','#754052'],rings:['#f5e9c9','#202e45'],candle:['#a85c27','#140c17'],pearl:['#fffdf5','#bda2a0'],garden:['#b9c8a2','#173c34'],night:['#394f94','#080d20'],butterfly:['#d9b9ff','#30204e'],sakura:['#fff0f4','#86415e'],royalblue:['#315f9c','#07152c'],terracotta:['#f4b17b','#32172e'],birthday:['#ffb6d2','#571849'],balloon:['#70d8d4','#53357f'],disco:['#6d368d','#090712'],minimal:['#f8f3e9','#b5a9a2'],watercolor:['#e9c2e0','#a7d5cb'],emerald:['#1c6a53','#031e22'],champagne:['#f9e7bd','#5b293a']})[t.id]||['#8c2547','#260717'];
+ const grad=ctx.createRadialGradient(w*.5,h*.28,20,w*.5,h*.55,h*.8);grad.addColorStop(0,bg[0]);grad.addColorStop(1,bg[1]);ctx.fillStyle=grad;ctx.fillRect(0,0,w,h);
+ // Theme-specific animated scene in exported video: each invitation has its own visual story.
+ ctx.textAlign='center';ctx.font='100px Georgia';
+ const sceneMap={birthday:['🎈','🎂','🎁'],balloon:['🎈','🎉','🎈'],gift:['🎁','✨','🌹'],letter:['💌','🌹','🌸'],rings:['💍','🌹','💍'],royalblue:['🎭','👰🏻‍♀️🤵🏻','✨'],wine:['🌹','🌿','🌹'],red:['🌹','🌹','🌹'],pink:['🌸','🌷','🌸'],ivory:['🤍','🌿','🤍'],gold:['📜','✨','🌹'],garden:['🌿','🌷','🌿'],purple:['🏮','✨','🏮'],night:['🌙','⭐','✨'],butterfly:['🦋','🌸','🦋'],sakura:['🌸','🌸','🌸'],terracotta:['🌅','🌾','🌅'],disco:['🪩','✨','🎉'],candle:['🕯️','🌹','🕯️'],emerald:['🌿','🌹','🌿'],champagne:['🥂','✨','🥂'],watercolor:['🪷','🌸','🪷'],pearl:['🤍','🌷','🤍'],minimal:['✦','✧','✦']};
+ const props=sceneMap[t.id]||['🌹','✨','🌹'];
+ const bob=Math.sin(progress*2.2)*12;
+ ctx.fillText(props[0],w*.2,h*.27+bob);ctx.fillText(props[1],w*.5,h*.27-bob*.5);ctx.fillText(props[2],w*.8,h*.27+bob);
+ if(t.id==='royalblue'||t.id==='disco') {ctx.fillStyle='rgba(75,4,23,.65)';ctx.fillRect(0,0,w*.17,h);ctx.fillRect(w*.83,0,w*.17,h);ctx.fillStyle='#d8b46e';ctx.fillRect(w*.12,h*.69,w*.76,h*.12);}
+ ctx.strokeStyle=t.id==='minimal'?'#332b30':(['ivory','watercolor','pearl'].includes(t.id)?'#a77a8c':'#e8ca86');ctx.lineWidth=['gold','royalblue','emerald'].includes(t.id)?6:3;ctx.beginPath();if(t.id==='rings'||t.id==='champagne')ctx.ellipse(w/2,h/2,w*.41,h*.43,0,0,Math.PI*2);else if(t.id==='minimal')ctx.rect(w*.1,h*.06,w*.8,h*.88);else ctx.roundRect(w*.07,h*.045,w*.86,h*.91,Math.min(w*.1,55));ctx.stroke();
+ // Gold glints
+ for(let i=0;i<40;i++){let x=(i*137+progress*60)%w,y=(i*197+progress*95)%h;ctx.fillStyle='rgba(255,220,145,'+(0.15+0.3*Math.abs(Math.sin(progress+i)))+')';ctx.beginPath();ctx.arc(x,y,1.5+(i%3),0,Math.PI*2);ctx.fill();}
+ // Falling rose petals
+ for(let i=0;i<14;i++){let x=(i*83+Math.sin(progress*1.4+i)*30)%w;let y=((i*107+progress*110)%(h+60))-30;ctx.save();ctx.translate(x,y);ctx.rotate(progress+i);ctx.fillStyle=i%2?'#ffd5df':'#c94c70';ctx.beginPath();ctx.ellipse(0,0,6,11,0,0,Math.PI*2);ctx.fill();ctx.restore();}
+ ctx.textAlign='center';ctx.fillStyle='#f0d39a';ctx.font='22px Arial';ctx.fillText('A SPECIAL INVITATION',w/2,h*.17);
+ ctx.font='70px Georgia';ctx.fillStyle='#ffe8b4';ctx.fillText(t.rose,w/2,h*.28);
+ ctx.fillStyle='#ffe8b4';ctx.font='46px Georgia';let y=canvasText(ctx,$('headline').value||categories[category].heading,w/2,h*.39,w*.76,58);
+ ctx.fillStyle='#fff0e5';ctx.font='italic 27px Georgia';y=canvasText(ctx,categories[category].line,w/2,y+8,w*.78,38);
+ ctx.fillStyle='#fff8f0';ctx.font='48px Georgia';const names=$('name1').value+($('name1').value&&$('name2').value?' & ':'')+$('name2').value;y=canvasText(ctx,names,w/2,y+20,w*.8,58);
+ ctx.strokeStyle='#edcf8c';ctx.beginPath();ctx.moveTo(w*.35,y+12);ctx.lineTo(w*.65,y+12);ctx.stroke();y+=48;
+ ctx.fillStyle='#f9e8de';ctx.font='25px Arial';
+ y=canvasText(ctx,[$('date').value,$('time').value,$('venue').value].filter(Boolean).join(' • '),w/2,y,w*.78,38);
+ ctx.fillStyle='#f9dfce';ctx.font='italic 24px Georgia';canvasText(ctx,$('message').value,w/2,y+22,w*.76,34);
+ ctx.fillStyle='#e6c57f';ctx.font='18px Arial';ctx.fillText('WITH LOVE • SAVE THE DATE',w/2,h*.9);
+}
+async function exportVideo(){
+ stopTrack();
+ const status=$('status'),btn=$('downloadVideo');btn.disabled=true;btn.textContent='Rendering…';
+ try{
+  const canvas=document.createElement('canvas');canvas.width=720;canvas.height=1120;
+  const ctx=canvas.getContext('2d');const stream=canvas.captureStream(30);
+  const AudioCtx=window.AudioContext||window.webkitAudioContext;if(!AudioCtx)throw new Error('This browser does not support audio mixing for video export.');
+  const ac=new AudioCtx();await ac.resume();
+  const dest=ac.createMediaStreamDestination();
+  // Route the selected MP3 into both the recording and local playback.
+  const audioEl=new Audio(trackUrl(selectedTrack));audioEl.loop=true;audioEl.crossOrigin='anonymous';
+  const mediaSource=ac.createMediaElementSource(audioEl);mediaSource.connect(dest);mediaSource.connect(ac.destination);
+  stream.addTrack(dest.stream.getAudioTracks()[0]);
+  const types=['video/mp4;codecs="avc1.42E01E,mp4a.40.2"','video/mp4','video/webm;codecs=vp9,opus','video/webm;codecs=vp8,opus','video/webm'];
+  const mime=types.find(x=>MediaRecorder.isTypeSupported(x));if(!mime)throw new Error('This browser does not support video recording. Try the latest Chrome or Edge.');
+  const recorder=new MediaRecorder(stream,{mimeType:mime,videoBitsPerSecond:3500000,audioBitsPerSecond:128000});
+  const chunks=[];recorder.ondataavailable=e=>{if(e.data&&e.data.size)chunks.push(e.data);};
+  const finished=new Promise((resolve,reject)=>{recorder.onstop=resolve;recorder.onerror=()=>reject(new Error('Video recording failed.'));});
+  await audioEl.play();recorder.start();
+  const started=performance.now(),duration=12000;
+  await new Promise(resolve=>{
+   function frame(now){const p=Math.min((now-started)/1000,12);drawVideoFrame(ctx,canvas.width,canvas.height,p);status.textContent='Creating your video… '+Math.round(p/12*100)+'%';if(now-started<duration)requestAnimationFrame(frame);else resolve();}
+   requestAnimationFrame(frame);
+  });
+  recorder.stop();await finished;audioEl.pause();audioEl.src='';await ac.close();stream.getTracks().forEach(t=>t.stop());
+  const ext=mime.includes('mp4')?'mp4':'webm';const blob=new Blob(chunks,{type:mime});
+  if(!blob.size)throw new Error('Video file was empty. Please try again.');
+  const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='rose-bouquet-invitation.'+ext;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);
+  status.textContent='Video downloaded as '+ext.toUpperCase()+'. Music is included. If you need MP4 and the file is WebM, use a browser with MP4 MediaRecorder support or convert it.';
+ }catch(err){status.textContent='Could not export video: '+err.message+' Check that the selected MP3 loads and try the latest Chrome/Edge.';}
+ finally{btn.disabled=false;btn.textContent='⬇ Create video';}
+}
+$('downloadVideo').onclick=exportVideo;
+$('downloadPng').onclick=async()=>{
+ const status=$('status');status.textContent='Preparing PNG…';
+ try{
+  const c=document.createElement('canvas');c.width=900;c.height=1400;drawVideoFrame(c.getContext('2d'),c.width,c.height,0);
+  const a=document.createElement('a');a.href=c.toDataURL('image/png');a.download='rose-bouquet-invitation.png';a.click();status.textContent='PNG invitation downloaded.';
+ }catch(e){status.textContent='PNG export failed: '+e.message;}
+};
+$('shareWhatsApp').onclick=()=>{
+ const text=`${$('headline').value}\n${$('name1').value}${$('name2').value?' & '+$('name2').value:''}\n${$('date').value}\n${$('time').value}\n${$('venue').value}\n${$('message').value}\nCreated with Rose Bouquet Cards`;
+ window.open('https://wa.me/?text='+encodeURIComponent(text),'_blank','noopener');
+};
+$('headline').value=categories['mehndi'].heading;$('message').value=categories['mehndi'].message;$('name1').value='Ayesha';$('name2').value='Hamza';document.querySelectorAll('.cat').forEach(a=>{if(a.getAttribute('href')==='mehndi.html')a.classList.add('active');else a.classList.remove('active');});
+renderTemplates();renderTracks();applyTheme();updatePreview();
+</script>
+</body>
+</html>
