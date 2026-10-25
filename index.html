@@ -30,8 +30,15 @@ main{max-width:1250px;margin:auto;padding:24px 18px 60px}.section-title{text-ali
 @keyframes glimmer{from{transform:translateY(-20px)}to{transform:translateY(20px)}}
 .invite .petal{position:absolute;top:-30px;font-size:20px;animation:fall 8s linear infinite;opacity:.75;pointer-events:none}.invite .p1{left:15%;animation-delay:-3s}.invite .p2{left:76%;animation-delay:-6s}.invite .p3{left:46%;animation-delay:-1s}.invite .p4{left:88%;animation-delay:-4s}
 @keyframes fall{0%{transform:translateY(-20px) rotate(0)}100%{transform:translateY(700px) rotate(360deg)}}
-.invite .topline{font:10px Arial,sans-serif;letter-spacing:4px;text-transform:uppercase;color:#f0d39a;margin-bottom:22px}.invite .rose-icon{font-size:54px;filter:drop-shadow(0 8px 12px #0005);margin:0 0 15px;animation:bloom 4s ease-in-out infinite}.invite h3{font-size:clamp(27px,3vw,39px);font-weight:normal;line-height:1.12;margin:7px 0;color:#ffe8b4;text-shadow:0 3px 14px #0007;overflow-wrap:anywhere}.invite .invite-line{font-size:14px;font-style:italic;margin:10px 0;color:#fff0e5}.invite .names{font-size:clamp(23px,2.6vw,34px);color:#fff8f0;line-height:1.3;overflow-wrap:anywhere}.invite .rule{width:90px;height:1px;background:linear-gradient(90deg,transparent,#edcf8c,transparent);margin:17px auto}.invite .details{font:12px/1.9 Arial,sans-serif;white-space:pre-line;color:#f9e8de;max-width:100%;overflow-wrap:anywhere}.invite .message{font-size:13px;font-style:italic;line-height:1.6;max-width:300px;margin-top:16px;color:#f9dfce}.invite .bottom{font:9px Arial,sans-serif;letter-spacing:3px;margin-top:22px;color:#e6c57f;text-transform:uppercase}
+.scene{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}.scene .prop{position:absolute;filter:drop-shadow(0 10px 8px #0004);animation:sceneFloat 4s ease-in-out infinite}.scene .prop.big{font-size:76px}.scene .prop.small{font-size:42px}.scene .curtain{position:absolute;top:0;bottom:0;width:24%;background:repeating-linear-gradient(90deg,#4b071a,#8e1835 12px,#5b0b22 25px);box-shadow:inset -8px 0 15px #18040b88;animation:curtain 6s ease-in-out infinite alternate}.scene .curtain.left{left:0}.scene .curtain.right{right:0;transform:scaleX(-1)}.scene .stage{position:absolute;left:7%;right:7%;bottom:12%;height:19%;border-radius:50% 50% 8px 8px;background:linear-gradient(#d9b46d,#6b253b);box-shadow:0 0 30px #ffd98066}.scene .bridegroom{position:absolute;bottom:19%;left:50%;transform:translateX(-50%);font-size:72px;filter:drop-shadow(0 6px 5px #0005);animation:coupleWalk 4s ease-in-out infinite}.scene .giftbox{position:absolute;left:50%;top:17%;transform:translateX(-50%);font-size:96px;animation:giftPop 3s ease-in-out infinite}.scene .cake{position:absolute;left:50%;top:17%;transform:translateX(-50%);font-size:86px;animation:sceneFloat 2s ease-in-out infinite}.scene .balloons{position:absolute;left:8%;right:8%;top:8%;font-size:48px;letter-spacing:8px;animation:balloonFloat 5s ease-in-out infinite}.scene .flowerbox{position:absolute;left:50%;top:13%;transform:translateX(-50%);font-size:86px;animation:giftPop 4s ease-in-out infinite}.scene .letter{position:absolute;left:50%;top:18%;transform:translateX(-50%);font-size:88px;animation:letterOpen 4s ease-in-out infinite}.scene .rings{position:absolute;left:50%;top:17%;transform:translateX(-50%);font-size:80px;animation:ringPulse 3s ease-in-out infinite}.scene .lanterns{position:absolute;top:9%;left:8%;right:8%;font-size:38px;letter-spacing:12px;animation:lanternRise 6s linear infinite}.scene .florals{position:absolute;top:8%;left:4%;right:4%;font-size:42px;display:flex;justify-content:space-between;animation:sceneFloat 4s ease-in-out infinite}.scene .book{position:absolute;left:50%;top:16%;transform:translateX(-50%);font-size:84px;animation:bookOpen 4s ease-in-out infinite}.invite>*:not(.scene){position:relative;z-index:1}.invite .topline{font:10px Arial,sans-serif;letter-spacing:4px;text-transform:uppercase;color:#f0d39a;margin-bottom:22px}.invite .rose-icon{font-size:54px;filter:drop-shadow(0 8px 12px #0005);margin:0 0 15px;animation:bloom 4s ease-in-out infinite}.invite h3{font-size:clamp(27px,3vw,39px);font-weight:normal;line-height:1.12;margin:7px 0;color:#ffe8b4;text-shadow:0 3px 14px #0007;overflow-wrap:anywhere}.invite .invite-line{font-size:14px;font-style:italic;margin:10px 0;color:#fff0e5}.invite .names{font-size:clamp(23px,2.6vw,34px);color:#fff8f0;line-height:1.3;overflow-wrap:anywhere}.invite .rule{width:90px;height:1px;background:linear-gradient(90deg,transparent,#edcf8c,transparent);margin:17px auto}.invite .details{font:12px/1.9 Arial,sans-serif;white-space:pre-line;color:#f9e8de;max-width:100%;overflow-wrap:anywhere}.invite .message{font-size:13px;font-style:italic;line-height:1.6;max-width:300px;margin-top:16px;color:#f9dfce}.invite .bottom{font:9px Arial,sans-serif;letter-spacing:3px;margin-top:22px;color:#e6c57f;text-transform:uppercase}
 
+/* Distinct scene accents: preserve each template's own visual story across categories. */
+.scene .occasion-cue{top:43%;font-size:35px;z-index:2;animation:sceneFloat 2.8s ease-in-out infinite}
+.scene .cue-left{left:8%}.scene .cue-right{right:8%;animation-delay:-1.2s}
+.scene .curtain{transform-origin:top center}
+.scene .stage:before,.scene .stage:after{content:"✦";position:absolute;top:-25px;color:#ffe7a6;font-size:26px;text-shadow:0 0 15px #ffda83}
+.scene .stage:before{left:22%}.scene .stage:after{right:22%}
+.scene .giftbox:after{content:"✦ ✨ ✦";display:block;font-size:22px;text-align:center;color:#ffe7a6;animation:giftPop 2s ease-in-out infinite}
 /* 24 genuinely different invitation compositions */
 .invite{transition:background .35s,border-radius .35s;}
 .invite:before{transition:all .35s}
@@ -85,17 +92,97 @@ main{max-width:1250px;margin:auto;padding:24px 18px 60px}.section-title{text-ali
 .invite.theme-ivory .topline,.invite.theme-ivory h3,.invite.theme-ivory .names,.invite.theme-ivory .details,.invite.theme-ivory .message,.invite.theme-minimal .topline,.invite.theme-minimal h3,.invite.theme-minimal .names,.invite.theme-minimal .details,.invite.theme-minimal .message,.invite.theme-watercolor h3,.invite.theme-watercolor .names,.invite.theme-watercolor .details,.invite.theme-watercolor .message{color:inherit;text-shadow:none}
 
 .invite.theme-pink{background:radial-gradient(ellipse at 50% 30%,#ed9cb3,#a62f5b 54%,#4c102d)}.invite.theme-gold{background:radial-gradient(ellipse at 50% 30%,#b88755,#5a2937 58%,#260d1b)}.invite.theme-ivory{background:radial-gradient(ellipse at 50% 30%,#fff1d8,#c78b91 55%,#63243c);color:#fff}.invite.theme-purple{background:radial-gradient(ellipse at 50% 30%,#9e8acb,#4b2d69 55%,#1e102c)}.invite.theme-red{background:radial-gradient(ellipse at 50% 30%,#f06c77,#8a1736 55%,#290816)}
-@keyframes bloom{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes sceneFloat{0%,100%{translate:0 0;rotate:-2deg}50%{translate:0 -12px;rotate:2deg}}@keyframes curtain{0%{width:32%}100%{width:13%}}@keyframes coupleWalk{0%,100%{transform:translate(-50%,0)}50%{transform:translate(calc(-50% + 12px),-7px)}}@keyframes giftPop{0%,100%{translate:0 0;scale:1}50%{translate:0 -10px;scale:1.07}}@keyframes balloonFloat{0%,100%{translate:0 0}50%{translate:0 -18px}}@keyframes letterOpen{0%,100%{rotate:0deg;scale:1}50%{rotate:-5deg;scale:1.08}}@keyframes ringPulse{0%,100%{scale:1}50%{scale:1.12}}@keyframes lanternRise{0%{translate:0 25px;opacity:.3}50%{opacity:1}100%{translate:0 -40px;opacity:.4}}@keyframes bookOpen{0%,100%{rotate:0deg}50%{rotate:4deg}}@keyframes bloom{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
 footer{text-align:center;padding:28px 16px;background:#35101f;color:#e8c8d2;font:12px/1.7 Arial,sans-serif}footer strong{font-family:Georgia,serif;color:#f3d69a;font-size:17px}
 @media(max-width:850px){.layout{grid-template-columns:1fr}.preview-wrap{position:static}.invite{max-width:420px;margin:auto;min-height:560px}.templates{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:460px){.panel{padding:14px}.templates{grid-template-columns:repeat(2,minmax(0,1fr))}.template-art{height:115px}.fields{grid-template-columns:1fr}.field.full{grid-column:auto}.hero{padding-top:35px}.invite{min-height:520px}}
+
+/* VISUAL UPGRADE: make the chosen scene a prominent, separate hero area */
+.invite{justify-content:flex-start!important;padding:205px 22px 24px!important;gap:0}
+.invite:after{opacity:.8;background-size:48px 48px}
+.scene{z-index:1!important;inset:0 0 auto!important;height:205px!important;overflow:visible!important;mask-image:linear-gradient(to bottom,#000 0%,#000 72%,transparent 100%)}
+.scene .prop{z-index:2;filter:drop-shadow(0 8px 9px #0007);text-shadow:0 4px 10px #0006}
+.scene .prop.big,.scene .cake,.scene .giftbox,.scene .flowerbox,.scene .letter,.scene .rings,.scene .book{font-size:94px!important}
+.scene .balloons{font-size:45px!important;letter-spacing:5px!important;top:6%!important}
+.scene .florals{font-size:40px!important;top:9%!important}
+.scene .curtain{width:19%!important;animation:curtain 3s ease-in-out infinite alternate}
+.scene .stage{bottom:-2%!important;height:25%!important;left:10%!important;right:10%!important}
+.scene .bridegroom{bottom:0!important;font-size:66px!important}
+.scene .occasion-cue{top:56%!important;bottom:auto!important;font-size:34px!important;animation:sceneFloat 2.6s ease-in-out infinite}
+.scene .cue-left{left:8%!important}.scene .cue-right{right:8%!important}
+.invite>*:not(.scene){position:relative;z-index:3!important}
+.invite .topline{margin-bottom:8px!important;font-size:9px!important}
+.invite .rose-icon{font-size:38px!important;margin:0 0 5px!important}
+.invite h3{font-size:clamp(23px,2.7vw,34px)!important;margin:5px 0!important}
+.invite .invite-line{margin:6px 0!important;font-size:12px!important}
+.invite .names{font-size:clamp(21px,2.3vw,29px)!important}
+.invite .rule{margin:10px auto!important}
+.invite .details{font-size:11px!important;line-height:1.5!important}
+.invite .message{font-size:12px!important;line-height:1.45!important;margin-top:8px!important}
+.invite .bottom{margin-top:10px!important;font-size:9px!important}
+@media(max-width:700px){.invite{padding-top:190px!important}.scene{height:190px!important}.scene .prop.big,.scene .cake,.scene .giftbox,.scene .flowerbox,.scene .letter,.scene .rings,.scene .book{font-size:78px!important}}
+
+
+/* VISUAL REDESIGN v2: editorial luxury studio */
+:root{--wine:#321020;--rose:#d14f79;--gold:#e8c77c;--cream:#fff8f4;--ink:#29111e;--muted:#866a77;--line:#ead2da}
+body{background:linear-gradient(135deg,#f8e9ec 0%,#fffaf7 42%,#f1e2d9 100%);font-family:Georgia,'Times New Roman',serif}
+header{padding:22px max(5%,calc((100% - 1320px)/2));background:linear-gradient(115deg,#170811,#45152c 48%,#7c2545);box-shadow:0 8px 28px #38102326}
+.brand{font-size:clamp(25px,3.2vw,38px);letter-spacing:.6px}.brand:before{content:"";display:inline-block;width:34px;height:34px;margin-right:9px;vertical-align:-6px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff0c7,#d7a85b 38%,#69213b 70%);box-shadow:0 0 0 3px #e9ca8266}
+.hero{padding:62px 18px 52px;background:radial-gradient(ellipse at 50% 0%,#fff 0,#fff5f2 44%,#f1d8df 100%);border-bottom:1px solid #e6c6d0}
+.hero:before,.hero:after{font-size:150px;color:#d9a5b4;opacity:.22}
+.eyebrow{letter-spacing:4px;font-size:11px;color:#a33d61}
+.hero h1{font-size:clamp(38px,6vw,70px);letter-spacing:-1.4px;line-height:1.02;margin:18px auto 16px;max-width:900px;color:#401329}
+.hero p{font-size:15px;max-width:650px}
+main{max-width:1360px;padding:34px 22px 70px}
+.section-title{font-size:34px;color:#42142a;margin:10px 0}
+.section-sub{font-size:14px;margin-bottom:24px}
+.categories{gap:12px;margin:24px 0 32px}
+.cat{padding:13px 23px;border-radius:999px;border:1px solid #e1bdc9;box-shadow:0 4px 14px #6c1d3910;transition:.25s}
+.cat:hover{transform:translateY(-2px);box-shadow:0 9px 22px #6c1d3920}
+.cat.active{background:linear-gradient(120deg,#431329,#9f3156);box-shadow:0 8px 20px #6b183b2e}
+.layout{grid-template-columns:minmax(0,1fr) minmax(350px,.86fr);gap:26px}
+.panel{padding:25px;border:1px solid #ead3db;border-radius:24px;box-shadow:0 18px 48px #4b14200d}
+.panel h2{font-size:24px;color:#42152b}
+.hint{font-size:12px}
+.templates{grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.template{border-radius:16px;background:#fff;border:1px solid #f0dce2;box-shadow:0 5px 16px #4c1b2a0a;transition:transform .25s,box-shadow .25s}
+.template:hover{transform:translateY(-4px);box-shadow:0 12px 22px #4c1b2a17}
+.template.selected{border:2px solid #bd476b;box-shadow:0 0 0 3px #bd476b1c,0 10px 24px #4c1b2a15}
+.template-art{height:155px}
+.template-art:before{inset:10px;border-width:1.5px}
+.template small{font-size:12px;padding:11px 10px;background:#fffdfc}
+.fields{gap:14px}
+.field label{font-size:12px;font-weight:bold;letter-spacing:.2px}
+.field input,.field textarea,.field select{border:1px solid #e6cbd4;border-radius:12px;padding:13px;background:#fffdfd;box-shadow:inset 0 1px 2px #4a10270a}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:#bd5577;box-shadow:0 0 0 3px #bd55771c}
+.track{border-radius:14px;padding:12px;border-color:#ead4dc;background:#fffdfd}
+.btn{padding:13px 16px;border-radius:12px;transition:transform .2s,filter .2s}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.04)}
+.primary{background:linear-gradient(120deg,#7d1e42,#d05279);box-shadow:0 8px 20px #8c2d4b30}
+.preview-wrap{top:16px}
+.preview-label{margin-bottom:15px}
+.preview-label h2{font-size:25px}
+.live{background:#edf8ee;padding:7px 11px}
+.invite{min-height:650px;max-height:780px;aspect-ratio:9/14;border-radius:24px;box-shadow:0 28px 60px #4010204a;transition:background .4s}
+.invite:before{inset:18px}
+.invite .topline{letter-spacing:4px;font-size:11px}
+.invite .rose-icon{font-size:65px;margin-bottom:19px}
+.invite h3{font-size:clamp(30px,3.4vw,45px);margin:12px 0}
+.invite .names{font-size:clamp(27px,3vw,38px)}
+.invite .rule{width:125px;margin:21px auto}
+.invite .details{font-size:13px;line-height:1.9}
+.invite .message{font-size:14px;line-height:1.65;max-width:90%}
+footer{margin-top:20px;background:linear-gradient(110deg,#200a16,#53172f);border-top:2px solid #d7b56e}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.preview-wrap{position:static}.invite{max-width:460px;min-height:620px}.templates{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:460px){.hero{padding:42px 16px}.templates{grid-template-columns:repeat(2,minmax(0,1fr))}.template-art{height:130px}.panel{padding:16px}}
+
 </style>
 </head>
 <body>
 <header><div><div class="brand">🌹 Rose <span>Bouquet</span> Cards</div><div class="tagline">Make every moment unforgettable</div></div><div class="header-pill">LUXURY DIGITAL INVITATIONS</div></header>
-<section class="hero"><div class="eyebrow">A little magic for your special day</div><h1>Invitations made with love</h1><p>Create a personalized invitation, choose your favourite music, preview your design, then download or share it with the people who matter most.</p></section>
+<section class="hero"><div class="eyebrow">THE DIGITAL INVITATION ATELIER</div><h1>Make your moment <em style="color:#bd4a70;font-weight:normal">unforgettable.</em></h1><p>Choose a cinematic scene, personalize every detail, add music, and share a keepsake made for your favourite people.</p></section>
 <main>
-<h2 class="section-title">Choose your occasion</h2><p class="section-sub">Start with Birthday, Wedding or Engagement.</p>
+<div style="text-align:center;font:11px Arial,sans-serif;letter-spacing:3px;color:#a54b69;margin-bottom:8px">DESIGNED FOR YOUR BIG MOMENTS</div><h2 class="section-title">Choose your occasion</h2><p class="section-sub">Start with Birthday, Wedding or Engagement.</p>
 <div class="categories" id="categories"><button class="cat active" data-cat="engagement">💍 Engagement</button><button class="cat" data-cat="wedding">🤍 Wedding</button><button class="cat" data-cat="birthday">🎂 Birthday</button></div>
 <div class="layout">
 <section class="panel">
@@ -121,6 +208,7 @@ footer{text-align:center;padding:28px 16px;background:#35101f;color:#e8c8d2;font
 <section class="panel preview-wrap">
 <div class="preview-label"><h2>Live preview</h2><span class="live">● LIVE</span></div>
 <div class="invite" id="invite">
+<div class="scene" id="scene" aria-hidden="true"></div>
 <span class="petal p1">🌹</span><span class="petal p2">🌸</span><span class="petal p3">🌹</span><span class="petal p4">🌸</span>
 <div class="topline">A special invitation</div><div class="rose-icon" id="roseIcon">🌹</div><h3 id="pvHeadline">You're Invited</h3><div class="invite-line" id="pvLine">Together with our families</div><div class="names" id="pvNames">Ayesha &amp; Hamza</div><div class="rule"></div><div class="details" id="pvDetails">Saturday, 14 November 2026
 7:00 PM onwards
@@ -184,6 +272,35 @@ function renderTemplates(){
 function applyTheme(){
  const t=themes[themeIndex];$('invite').className='invite '+t.cls;
  $('roseIcon').textContent=t.rose;
+ const scene=$('scene');
+ const scenes={
+ birthday:'<div class="prop balloons">🎈 🎈 🎈</div><div class="prop cake">🎂</div><div class="prop small" style="left:12%;bottom:18%">🎁</div><div class="prop small" style="right:12%;bottom:18%">🎉</div>',
+ balloon:'<div class="prop balloons">🎈 🎈 🎈 🎈</div><div class="prop cake">🎂</div>',
+ gift:'<div class="prop giftbox">🎁</div><div class="prop small" style="left:12%;top:32%">✨</div><div class="prop small" style="right:12%;top:34%">🌹</div>',
+ letter:'<div class="prop letter">💌</div><div class="prop small" style="left:10%;top:35%">🌹</div><div class="prop small" style="right:10%;top:38%">🌸</div>',
+ rings:'<div class="prop rings">💍</div><div class="prop florals">🌹 <span>✨</span> 🌹</div>',
+ candle:'<div class="prop florals">🕯️ <span>🌹</span> 🕯️</div>',
+ wine:'<div class="prop florals">🌹 <span>🌿</span> 🌹</div>', red:'<div class="prop florals">🌹 <span>🌹</span> 🌹</div>', pink:'<div class="prop florals">🌸 <span>🌷</span> 🌸</div>', ivory:'<div class="prop florals">🤍 <span>🌿</span> 🤍</div>', sakura:'<div class="prop florals">🌸 <span>🌸</span> 🌸</div>', garden:'<div class="prop florals">🌿 <span>🌷</span> 🌿</div>', watercolor:'<div class="prop florals">🪷 <span>🌸</span> 🪷</div>', pearl:'<div class="prop florals">🤍 <span>🌷</span> 🤍</div>',
+ royalblue:'<div class="curtain left"></div><div class="curtain right"></div><div class="stage"></div><div class="prop bridegroom">👰🏻‍♀️🤵🏻</div>',
+ emerald:'<div class="prop florals">🌿 <span>🌹</span> 🌿</div><div class="prop small" style="left:15%;bottom:20%">🕯️</div><div class="prop small" style="right:15%;bottom:20%">🕯️</div>',
+ purple:'<div class="prop lanterns">🏮 ✨ 🏮</div><div class="prop small" style="left:15%;bottom:18%">🦋</div><div class="prop small" style="right:15%;bottom:18%">🦋</div>',
+ night:'<div class="prop lanterns">✨ 🌙 ✨</div><div class="prop small" style="left:15%;top:30%">⭐</div><div class="prop small" style="right:15%;top:40%">⭐</div>',
+ terracotta:'<div class="prop florals">🌅 <span>🌾</span> 🌅</div>',
+ butterfly:'<div class="prop small" style="left:13%;top:23%">🦋</div><div class="prop small" style="right:13%;top:33%">🦋</div><div class="prop small" style="left:20%;bottom:20%">🌸</div>',
+ disco:'<div class="prop cake">🪩</div><div class="prop small" style="left:12%;top:35%">✨</div><div class="prop small" style="right:12%;top:38%">🎉</div>',
+ champagne:'<div class="prop florals">🥂 <span>✨</span> 🥂</div>', gold:'<div class="prop book">📜</div><div class="prop florals">✨ <span>🌹</span> ✨</div>', minimal:'<div class="prop small" style="top:14%;left:calc(50% - 22px)">✦</div>',
+};
+ // Keep every template's own scene, regardless of selected occasion. Previously the occasion
+ // category replaced many templates with the same generic scene, making cards look alike.
+ scene.innerHTML=scenes[t.id]||scenes.rings;
+ // Add only small occasion cues; never replace the selected design's main environment.
+ if(category==='birthday' && !['birthday','balloon','gift','disco'].includes(t.id)){
+   scene.insertAdjacentHTML('beforeend','<div class="prop small occasion-cue cue-left">🎈</div><div class="prop small occasion-cue cue-right">🎁</div>');
+ } else if(category==='wedding' && !['royalblue','rings','wine','red','pink','ivory','gold','champagne','emerald','watercolor'].includes(t.id)){
+   scene.insertAdjacentHTML('beforeend','<div class="prop small occasion-cue cue-left">🌹</div><div class="prop small occasion-cue cue-right">🌹</div>');
+ } else if(category==='engagement' && !['rings','letter','gift'].includes(t.id)){
+   scene.insertAdjacentHTML('beforeend','<div class="prop small occasion-cue cue-left">💍</div><div class="prop small occasion-cue cue-right">✨</div>');
+ }
 }
 function updatePreview(){
  const h=$('headline').value.trim()||categories[category].heading;
@@ -229,6 +346,13 @@ function canvasText(ctx,text,x,y,maxWidth,lineHeight){
 function drawVideoFrame(ctx,w,h,progress){
  const t=themes[themeIndex],bg=({wine:['#8c2547','#260717'],pink:['#ffe0eb','#6e1e45'],gold:['#f0d49a','#35141f'],ivory:['#fff8e9','#986276'],purple:['#b6a4eb','#1d102e'],red:['#ff7e84','#300616'],gift:['#ffced9','#4b0828'],letter:['#fff4df','#754052'],rings:['#f5e9c9','#202e45'],candle:['#a85c27','#140c17'],pearl:['#fffdf5','#bda2a0'],garden:['#b9c8a2','#173c34'],night:['#394f94','#080d20'],butterfly:['#d9b9ff','#30204e'],sakura:['#fff0f4','#86415e'],royalblue:['#315f9c','#07152c'],terracotta:['#f4b17b','#32172e'],birthday:['#ffb6d2','#571849'],balloon:['#70d8d4','#53357f'],disco:['#6d368d','#090712'],minimal:['#f8f3e9','#b5a9a2'],watercolor:['#e9c2e0','#a7d5cb'],emerald:['#1c6a53','#031e22'],champagne:['#f9e7bd','#5b293a']})[t.id]||['#8c2547','#260717'];
  const grad=ctx.createRadialGradient(w*.5,h*.28,20,w*.5,h*.55,h*.8);grad.addColorStop(0,bg[0]);grad.addColorStop(1,bg[1]);ctx.fillStyle=grad;ctx.fillRect(0,0,w,h);
+ // Theme-specific animated scene in exported video: each invitation has its own visual story.
+ ctx.textAlign='center';ctx.font='100px Georgia';
+ const sceneMap={birthday:['🎈','🎂','🎁'],balloon:['🎈','🎉','🎈'],gift:['🎁','✨','🌹'],letter:['💌','🌹','🌸'],rings:['💍','🌹','💍'],royalblue:['🎭','👰🏻‍♀️🤵🏻','✨'],wine:['🌹','🌿','🌹'],red:['🌹','🌹','🌹'],pink:['🌸','🌷','🌸'],ivory:['🤍','🌿','🤍'],gold:['📜','✨','🌹'],garden:['🌿','🌷','🌿'],purple:['🏮','✨','🏮'],night:['🌙','⭐','✨'],butterfly:['🦋','🌸','🦋'],sakura:['🌸','🌸','🌸'],terracotta:['🌅','🌾','🌅'],disco:['🪩','✨','🎉'],candle:['🕯️','🌹','🕯️'],emerald:['🌿','🌹','🌿'],champagne:['🥂','✨','🥂'],watercolor:['🪷','🌸','🪷'],pearl:['🤍','🌷','🤍'],minimal:['✦','✧','✦']};
+ const props=sceneMap[t.id]||['🌹','✨','🌹'];
+ const bob=Math.sin(progress*2.2)*12;
+ ctx.fillText(props[0],w*.2,h*.27+bob);ctx.fillText(props[1],w*.5,h*.27-bob*.5);ctx.fillText(props[2],w*.8,h*.27+bob);
+ if(t.id==='royalblue'||t.id==='disco') {ctx.fillStyle='rgba(75,4,23,.65)';ctx.fillRect(0,0,w*.17,h);ctx.fillRect(w*.83,0,w*.17,h);ctx.fillStyle='#d8b46e';ctx.fillRect(w*.12,h*.69,w*.76,h*.12);}
  ctx.strokeStyle=t.id==='minimal'?'#332b30':(['ivory','watercolor','pearl'].includes(t.id)?'#a77a8c':'#e8ca86');ctx.lineWidth=['gold','royalblue','emerald'].includes(t.id)?6:3;ctx.beginPath();if(t.id==='rings'||t.id==='champagne')ctx.ellipse(w/2,h/2,w*.41,h*.43,0,0,Math.PI*2);else if(t.id==='minimal')ctx.rect(w*.1,h*.06,w*.8,h*.88);else ctx.roundRect(w*.07,h*.045,w*.86,h*.91,Math.min(w*.1,55));ctx.stroke();
  // Gold glints
  for(let i=0;i<40;i++){let x=(i*137+progress*60)%w,y=(i*197+progress*95)%h;ctx.fillStyle='rgba(255,220,145,'+(0.15+0.3*Math.abs(Math.sin(progress+i)))+')';ctx.beginPath();ctx.arc(x,y,1.5+(i%3),0,Math.PI*2);ctx.fill();}
