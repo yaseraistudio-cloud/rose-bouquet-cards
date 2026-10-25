@@ -214,6 +214,26 @@ footer{margin-top:20px;background:linear-gradient(110deg,#200a16,#53172f);border
 .template-art.art-wine{background:radial-gradient(circle,#a5385b,#3c081e 75%)}.template-art.art-pink{background:linear-gradient(145deg,#fff0f6,#e99dbb,#8f345b)}.template-art.art-gold{background:linear-gradient(135deg,#ffe8a2,#b37b38,#381629)}.template-art.art-ivory{background:linear-gradient(135deg,#fffdf2,#ddc7a7)}.template-art.art-purple{background:radial-gradient(circle,#c3a9f3,#3c225d)}.template-art.art-red{background:linear-gradient(145deg,#f37e8a,#9e1238,#290719)}
 .template-art.art-gift{background:repeating-linear-gradient(45deg,#d72c70 0 12px,#8f1246 12px 24px);color:#fff}.template-art.art-letter{background:linear-gradient(135deg,#fff2d8,#d3b18c,#73425d);color:#4d293c}.template-art.art-rings{background:radial-gradient(circle,#d6c48c,#61768c,#172a40)}.template-art.art-candle{background:radial-gradient(circle,#c47b42,#45201e,#100b13)}.template-art.art-pearl{background:linear-gradient(135deg,#fff,#d9c6d0,#a28a9b);color:#5e4352}.template-art.art-garden{background:linear-gradient(135deg,#d9e2b9,#477653,#12352d)}.template-art.art-night{background:radial-gradient(circle,#385998,#080d20)}.template-art.art-butterfly{background:linear-gradient(135deg,#f5d8ff,#b69bdd,#45305f)}.template-art.art-sakura{background:linear-gradient(135deg,#fff7fa,#f3cad8,#a94e72);color:#6d2946}.template-art.art-royalblue{background:linear-gradient(135deg,#24518d,#07152c)}.template-art.art-terracotta{background:linear-gradient(180deg,#f6c58f,#c86f58,#3c2435)}.template-art.art-birthday{background:radial-gradient(circle,#ffe89a,#f48dbd,#9e2870)}.template-art.art-balloon{background:linear-gradient(135deg,#5ddbd3,#5875c9,#572e80)}.template-art.art-disco{background:repeating-radial-gradient(circle,#783ab0 0 6px,#100819 7px 16px)}.template-art.art-minimal{background:#fbf8f1;color:#29262b}.template-art.art-watercolor{background:radial-gradient(circle at 20% 20%,#f5d7e8,transparent 40%),radial-gradient(circle at 80% 60%,#b8e0d4,transparent 50%),#fff9f2;color:#4a3b4c}.template-art.art-emerald{background:linear-gradient(135deg,#238267,#031b20)}.template-art.art-champagne{background:radial-gradient(circle,#fff2c7,#c8a46e,#613047)}
 
+
+/* Asset-backed invitation gallery */
+.templates{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.template{box-shadow:0 5px 18px #5a1b2b0b;transition:transform .2s,box-shadow .2s}
+.template:hover{transform:translateY(-3px);box-shadow:0 12px 25px #5a1b2b18}
+.template-art{height:165px;background:#4a1027;isolation:isolate}
+.template-art .asset-thumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .4s}
+.template:hover .asset-thumb{transform:scale(1.05)}
+.template-art:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#14050a16 15%,#16040bd9 100%);z-index:-1}
+.template-art:before{z-index:0;pointer-events:none}
+.template-art .art-rose{z-index:2}
+.template-art .art-text{font-family:Georgia,serif;font-size:13px;position:relative;text-shadow:0 2px 8px #000b;max-width:95%;margin-top:20px}
+.template small{font-size:12px;font-weight:bold;line-height:1.35;min-height:36px;padding:10px 9px}
+.invite.asset-backed{background-size:cover;background-position:center;background-repeat:no-repeat}
+.invite.asset-backed:after{background:linear-gradient(180deg,#14030a25,#16030a88 48%,#16030acc)}
+.scene .asset-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.72;z-index:-1}
+.scene .asset-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.58;z-index:-1}
+.asset-note{font:11px Arial,sans-serif;color:#9a7a86;margin-top:8px}
+@media(max-width:600px){.templates{grid-template-columns:repeat(2,minmax(0,1fr))}.template-art{height:150px}}
+
 </style>
 </head>
 <body>
@@ -226,7 +246,7 @@ footer{margin-top:20px;background:linear-gradient(110deg,#200a16,#53172f);border
 <div class="layout">
 <section class="panel">
 <h2>1. Choose a design</h2><p class="hint">Select a style. Your live invitation updates as you edit the details.</p>
-<div class="templates" id="templates"></div>
+<div class="templates" id="templates"></div><p class="asset-note">Photo and video designs load directly from your GitHub repository. Keep the filenames unchanged when uploading.</p>
 <div style="height:22px"></div><h2>2. Personalize your invitation</h2><p class="hint">Fill in the details you want guests to see.</p>
 <div class="fields">
 <div class="field full"><label for="headline">Invitation heading</label><input id="headline" value="You're Invited"></div>
@@ -261,29 +281,29 @@ The Rose Garden, Muscat</div><div class="message" id="pvMessage">Your presence w
 <script>
 const $=id=>document.getElementById(id);
 const themes=[
-{id:'wine',name:'01 Royal Burgundy',art:'art-wine',cls:'theme-wine',rose:'🌹',shape:'arch',line:'Royal floral frame'},
-{id:'pink',name:'02 Blush Romance',art:'art-pink',cls:'theme-pink',rose:'🌸',shape:'oval',line:'Soft pink blossoms'},
-{id:'gold',name:'03 Golden Elegance',art:'art-gold',cls:'theme-gold',rose:'💐',shape:'gold',line:'Gold foil luxury'},
-{id:'ivory',name:'04 Ivory Garden',art:'art-ivory',cls:'theme-ivory',rose:'🌷',shape:'garden',line:'Ivory botanical'},
-{id:'purple',name:'05 Lavender Dream',art:'art-purple',cls:'theme-purple',rose:'🪻',shape:'moon',line:'Lavender moonlight'},
+{id:'wine',name:'01 Royal Burgundy',art:'art-wine',cls:'theme-wine',rose:'🌹',shape:'arch',line:'Royal floral frame',asset:'Luxury_maroon_and_gold_invitation.jpg'},
+{id:'pink',name:'02 Blush Romance',art:'art-pink',cls:'theme-pink',rose:'🌸',shape:'oval',line:'Soft pink blossoms',asset:'Floral_wedding_invitation.jpg'},
+{id:'gold',name:'03 Golden Elegance',art:'art-gold',cls:'theme-gold',rose:'💐',shape:'gold',line:'Gold foil luxury',asset:'Luxury_invitation_card_background.jpg'},
+{id:'ivory',name:'04 Ivory Garden',art:'art-ivory',cls:'theme-ivory',rose:'🌷',shape:'garden',line:'Ivory botanical',asset:'Decorative_floral_invitation.jpg'},
+{id:'purple',name:'05 Lavender Dream',art:'art-purple',cls:'theme-purple',rose:'🪻',shape:'moon',line:'Lavender moonlight',asset:'Royal_Nikah_invitation_background.jpg',video:'Golden_lanterns_swaying.mp4'},
 {id:'red',name:'06 Red Rose Luxury',art:'art-red',cls:'theme-red',rose:'🥀',shape:'diamond',line:'Red rose romance'},
-{id:'gift',name:'07 Surprise Gift Box',art:'art-gift',cls:'theme-gift',rose:'🎁',shape:'gift',line:'Ribbon gift reveal'},
+{id:'gift',name:'07 Surprise Gift Box',art:'art-gift',cls:'theme-gift',rose:'🎁',shape:'gift',line:'Ribbon gift reveal',asset:'Luxury_invitation_card_background.jpg'},
 {id:'letter',name:'08 Love Letter',art:'art-letter',cls:'theme-letter',rose:'💌',shape:'letter',line:'Open envelope'},
-{id:'rings',name:'09 Wedding Rings',art:'art-rings',cls:'theme-rings',rose:'💍',shape:'rings',line:'Interlocked rings'},
+{id:'rings',name:'09 Wedding Rings',art:'art-rings',cls:'theme-rings',rose:'💍',shape:'rings',line:'Interlocked rings',asset:'Emerald_engagement_invitation.jpg'},
 {id:'candle',name:'10 Candlelight',art:'art-candle',cls:'theme-candle',rose:'🕯️',shape:'candle',line:'Warm candle glow'},
 {id:'pearl',name:'11 Pearl & Lace',art:'art-pearl',cls:'theme-pearl',rose:'🤍',shape:'lace',line:'Pearl lace details'},
 {id:'garden',name:'12 Secret Garden',art:'art-garden',cls:'theme-garden',rose:'🌿',shape:'leaves',line:'Green garden vines'},
 {id:'night',name:'13 Midnight Stars',art:'art-night',cls:'theme-night',rose:'✨',shape:'stars',line:'Starlit night sky'},
 {id:'butterfly',name:'14 Butterfly Bliss',art:'art-butterfly',cls:'theme-butterfly',rose:'🦋',shape:'butterfly',line:'Floating butterflies'},
 {id:'sakura',name:'15 Sakura Blossom',art:'art-sakura',cls:'theme-sakura',rose:'🌸',shape:'sakura',line:'Cherry blossom'},
-{id:'royalblue',name:'16 Sapphire Royal',art:'art-royalblue',cls:'theme-royalblue',rose:'👑',shape:'royal',line:'Sapphire and crown'},
+{id:'royalblue',name:'16 Sapphire Royal',art:'art-royalblue',cls:'theme-royalblue',rose:'👑',shape:'royal',line:'Sapphire and crown',asset:'Midnight_Walima_navy_gold.jpg'},
 {id:'terracotta',name:'17 Desert Sunset',art:'art-terracotta',cls:'theme-terracotta',rose:'🌅',shape:'sunset',line:'Warm sunset horizon'},
-{id:'birthday',name:'18 Birthday Party',art:'art-birthday',cls:'theme-birthday',rose:'🎂',shape:'cake',line:'Cake and confetti'},
-{id:'balloon',name:'19 Balloon Celebration',art:'art-balloon',cls:'theme-balloon',rose:'🎈',shape:'balloons',line:'Colourful balloons'},
+{id:'birthday',name:'18 Birthday Party',art:'art-birthday',cls:'theme-birthday',rose:'🎂',shape:'cake',line:'Cake and confetti',asset:'Luxury_birthday_invitation.jpg'},
+{id:'balloon',name:'19 Balloon Celebration',art:'art-balloon',cls:'theme-balloon',rose:'🎈',shape:'balloons',line:'Colourful balloons',asset:'Luxury_birthday_invitation.jpg'},
 {id:'disco',name:'20 Glitter Disco',art:'art-disco',cls:'theme-disco',rose:'🪩',shape:'disco',line:'Sparkle party lights'},
 {id:'minimal',name:'21 Modern Minimal',art:'art-minimal',cls:'theme-minimal',rose:'✦',shape:'minimal',line:'Clean modern layout'},
 {id:'watercolor',name:'22 Watercolor Florals',art:'art-watercolor',cls:'theme-watercolor',rose:'🪷',shape:'watercolor',line:'Painted floral wash'},
-{id:'emerald',name:'23 Emerald Luxe',art:'art-emerald',cls:'theme-emerald',rose:'🍃',shape:'emerald',line:'Emerald velvet'},
+{id:'emerald',name:'23 Emerald Luxe',art:'art-emerald',cls:'theme-emerald',rose:'🍃',shape:'emerald',line:'Emerald velvet',asset:'Emerald_engagement_invitation.jpg'},
 {id:'champagne',name:'24 Champagne Toast',art:'art-champagne',cls:'theme-champagne',rose:'🥂',shape:'champagne',line:'Champagne celebration'}
 ];
 const categories={
@@ -308,12 +328,12 @@ function renderTemplates(){
  templateContainer.innerHTML='';
  themes.forEach((t,i)=>{
   const b=document.createElement('button');b.className='template'+(i===themeIndex?' selected':'');
-  b.innerHTML=`<div class="template-art ${t.art}"><span class="art-rose r1">${t.rose}</span><div class="art-text"><b>${t.rose}</b><br>${t.line}<br><span style="font-size:10px">${categories[category].heading}</span></div><span class="art-rose r2">${t.shape==='rings'?'💍':t.shape==='gift'?'🎀':t.shape==='cake'?'🎉':t.shape==='stars'?'⭐':t.rose}</span></div><small>${t.name}</small>`;
+  b.innerHTML=`<div class="template-art ${t.art}">${t.asset?`<img class="asset-thumb" src="${t.asset}" alt="${t.name}" loading="lazy" onerror="this.remove()">`:''}${t.video?`<span style="position:absolute;top:8px;left:8px;background:#250a18d9;color:white;border-radius:20px;padding:5px 8px;font:10px Arial,sans-serif;z-index:3">▶ VIDEO</span>`:''}<span class="art-rose r1">${t.rose}</span><div class="art-text"><b>${t.rose}</b><br>${t.line}<br><span style="font-size:10px">${categories[category].heading}</span></div><span class="art-rose r2">${t.shape==='rings'?'💍':t.shape==='gift'?'🎀':t.shape==='cake'?'🎉':t.shape==='stars'?'⭐':t.rose}</span></div><small>${t.name}</small>`;
   b.onclick=()=>{themeIndex=i;renderTemplates();applyTheme();updatePreview();$('status').textContent='Selected design: '+themes[themeIndex].name;};templateContainer.appendChild(b);
  });
 }
 function applyTheme(){
- const t=themes[themeIndex];$('invite').className='invite '+t.cls;
+ const t=themes[themeIndex];$('invite').className='invite '+t.cls+(t.asset?' asset-backed':'');$('invite').style.backgroundImage=t.asset?`linear-gradient(180deg,#19040a22,#19040acc),url("${t.asset}")`:'';
  $('roseIcon').textContent=t.rose;
  const scene=$('scene');
  const scenes={
@@ -335,7 +355,7 @@ function applyTheme(){
 };
  // Keep every template's own scene, regardless of selected occasion. Previously the occasion
  // category replaced many templates with the same generic scene, making cards look alike.
- scene.innerHTML=scenes[t.id]||scenes.rings;
+ scene.innerHTML=(t.video?`<video class="asset-video" src="${t.video}" autoplay muted loop playsinline></video>`:'')+(t.asset?`<img class="asset-image" src="${t.asset}" alt="" onerror="this.remove()">`:'')+(scenes[t.id]||scenes.rings);
  $('invite').style.display='flex';
  // Add only small occasion cues; never replace the selected design's main environment.
  if(category==='birthday' && !['birthday','balloon','gift','disco'].includes(t.id)){
