@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rose Bouquet Cards | Free Invitation Maker</title>
+<meta name="description" content="Create beautiful birthday, wedding and engagement invitations for free. Customize your card, download it and share it on WhatsApp.">
+<style>
+:root{--rose:#a83259;--gold:#d7b56d;--cream:#fff9f5;--ink:#33252b}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:var(--cream);color:var(--ink)}
+header{background:#fff;padding:18px 5%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #f0e1e4;gap:15px}
+.brand{font-family:Georgia,serif;color:var(--rose);font-size:25px;font-weight:bold}
+header small{color:#876d77}
+.hero{text-align:center;padding:48px 18px 30px;background:linear-gradient(135deg,#fff0f2,#fffaf2)}
+.hero h1{font-family:Georgia,serif;font-size:clamp(30px,5vw,48px);margin:0 0 12px;color:#782944}
+.hero p{line-height:1.7;color:#735c65}
+.wrap{max-width:1050px;margin:25px auto;padding:0 16px}
+.categories{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:25px}
+button,select,input,textarea{font:inherit}
+button{cursor:pointer;border:0;border-radius:10px;padding:12px 16px;font-weight:bold}
+.cat{background:white;border:1px solid #ead6dc;color:#713047}
+.cat.active,.primary{background:var(--rose);color:white}
+.workspace{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.panel{background:white;padding:22px;border:1px solid #efdee3;border-radius:18px;box-shadow:0 8px 25px #5720370b}
+h2{font-family:Georgia,serif;color:#782944;margin-top:0}
+label{display:block;font-size:14px;font-weight:bold;margin:15px 0 7px}
+input,select,textarea{width:100%;padding:12px;border:1px solid #e4cfd6;border-radius:9px;background:#fffdfc;color:#33252b}
+textarea{resize:vertical}
+.hint{font-size:12px;color:#846c75;line-height:1.6}
+.preview-area{background:#f9edf0;border-radius:14px;padding:18px;display:flex;justify-content:center}
+.card{width:100%;max-width:330px;min-height:430px;padding:25px 17px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border:5px double var(--gold);background:linear-gradient(145deg,#fffaf4,#fff0f3);color:#752b45;position:relative;overflow:hidden}
+.card:before,.card:after{content:"❀ ✿ ❀";position:absolute;color:#ce8d9e;font-size:22px;letter-spacing:5px}
+.card:before{top:12px}.card:after{bottom:12px}
+.card.green{background:linear-gradient(145deg,#153f35,#092c27);color:#f7df9e;border-color:#e1c16c}
+.card.dark{background:linear-gradient(145deg,#252333,#473048);color:#ffe4c2;border-color:#d7b56d}
+.flower{font-size:36px;margin:16px 0 5px}
+.eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase}
+.card h3{font-family:Georgia,serif;font-size:34px;line-height:1.2;margin:15px 0;overflow-wrap:anywhere}
+.card .names{font-family:Georgia,serif;font-size:23px;overflow-wrap:anywhere}
+.card .message{font-size:13px;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}
+.card .details{font-size:13px;line-height:1.8;margin-top:15px;white-space:pre-wrap;overflow-wrap:anywhere}
+.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}
+.actions button{flex:1;min-width:130px}
+.secondary{background:#f6e7eb;color:#792e48}
+footer{text-align:center;padding:30px 15px;color:#8a7079;font-size:13px}
+@media(max-width:720px){.workspace{grid-template-columns:1fr}.hero{padding-top:35px}.panel{padding:17px}}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <div class="brand">🌹 Rose Bouquet Cards</div>
+    <small>Beautiful moments, beautifully invited</small>
+  </div>
+  <button class="secondary" onclick="document.getElementById('editor').scrollIntoView({behavior:'smooth'})">Create a Card</button>
+</header>
+
+<section class="hero">
+  <h1>Make Your Moments Special</h1>
+  <p>Create a beautiful invitation for free.<br>Personalize your card, download it and share it with loved ones.</p>
+</section>
+
+<main class="wrap" id="editor">
+  <div class="categories">
+    <button class="cat active" data-cat="birthday">🎂 Birthday</button>
+    <button class="cat" data-cat="wedding">💍 Wedding</button>
+    <button class="cat" data-cat="engagement">💖 Engagement</button>
+  </div>
+
+  <div class="workspace">
+    <section class="panel">
+      <h2>Customize Your Invitation</h2>
+      <label for="style">Choose a design</label>
+      <select id="style">
+        <option value="rose">Blush Rose</option>
+        <option value="green">Emerald & Gold</option>
+        <option value="dark">Midnight Luxury</option>
+      </select>
+
+      <label for="host">Name / Names</label>
+      <input id="host" maxlength="70" placeholder="e.g. Ayesha or Ayesha & Ahmed" value="Your Name">
+
+      <label for="date">Date and time</label>
+      <input id="date" maxlength="100" placeholder="e.g. 25 December, 7:00 PM">
+
+      <label for="venue">Venue</label>
+      <input id="venue" maxlength="120" placeholder="Enter venue or address">
+
+      <label for="message">Personal message</label>
+      <textarea id="message" rows="3" maxlength="240">We would be delighted to celebrate this special moment with you!</textarea>
+
+      <p class="hint">Your details appear in the preview. This first version does not save your personal details to a database.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Live Preview</h2>
+      <div class="preview-area">
+        <div class="card" id="card">
+          <div class="flower" id="flower">🌹</div>
+          <div class="eyebrow" id="eyebrow">You're Invited</div>
+          <h3 id="heading">Birthday Celebration</h3>
+          <div class="names" id="names">Your Name</div>
+          <p class="message" id="messagePreview">We would be delighted to celebrate this special moment with you!</p>
+          <div class="details" id="details">Date and time<br>Venue</div>
+          <div class="flower">✦</div>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="primary" id="download">Download PNG</button>
+        <button class="secondary" id="whatsapp">Share on WhatsApp</button>
+      </div>
+      <p class="hint">Tip: For best results, enter short names and clear event details.</p>
+    </section>
+  </div>
+</main>
+
+<footer>© <span id="year"></span> Rose Bouquet Cards · Made with love 🌹</footer>
+
+<script>
+const $ = id => document.getElementById(id);
+let category = "birthday";
+
+const eventInfo = {
+  birthday: {title:"Birthday Celebration",flower:"🎂",eyebrow:"You're Invited"},
+  wedding: {title:"Wedding Invitation",flower:"💍",eyebrow:"Together With Our Families"},
+  engagement: {title:"Engagement Celebration",flower:"💖",eyebrow:"A Beautiful Beginning"}
+};
+
+function updateCard(){
+  const info = eventInfo[category];
+  $("heading").textContent = info.title;
+  $("flower").textContent = info.flower;
+  $("eyebrow").textContent = info.eyebrow;
+  $("names").textContent = $("host").value.trim() || "Your Name";
+  $("messagePreview").textContent = $("message").value.trim();
+  const date = $("date").value.trim() || "Date and time";
+  const venue = $("venue").value.trim() || "Venue";
+  $("details").textContent = date + "\n" + venue;
+
+  $("card").className = "card";
+  if($("style").value === "green") $("card").classList.add("green");
+  if($("style").value === "dark") $("card").classList.add("dark");
+}
+
+document.querySelectorAll(".cat").forEach(btn => {
+  btn.addEventListener("click",()=>{
+    category = btn.dataset.cat;
+    document.querySelectorAll(".cat").forEach(b=>b.classList.toggle("active",b===btn));
+    updateCard();
+  });
+});
+
+["host","date","venue","message","style"].forEach(id=>{
+  $(id).addEventListener("input",updateCard);
+  $(id).addEventListener("change",updateCard);
+});
+
+$("download").addEventListener("click",()=>{
+  const card = $("card");
+  const style = $("style").value;
+  const bg = style === "green" ? "#123b31" : style === "dark" ? "#302538" : "#fff4f4";
+  const fg = style === "green" ? "#f7df9e" : style === "dark" ? "#ffe4c2" : "#752b45";
+  const title = $("heading").textContent;
+  const names = $("names").textContent;
+  const message = $("messagePreview").textContent;
+  const details = $("details").textContent;
+  const flower = $("flower").textContent;
+  const eyebrow = $("eyebrow").textContent;
+  const esc = s => s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&apos;"}[c]));
+  const wrap = (text,max) => {
+    const words = text.split(/\s+/), lines=[];
+    let line="";
+    words.forEach(word=>{
+      if((line+" "+word).trim().length>max && line){lines.push(line);line=word;}
+      else line=(line+" "+word).trim();
+    });
+    if(line) lines.push(line);
+    return lines;
+  };
+  const textLines = (text,y,size,max,lineHeight) =>
+    wrap(text,max).map(line=>{
+      const out=`<text x="400" y="${y}" text-anchor="middle" font-size="${size}">${esc(line)}</text>`;
+      y+=lineHeight;
+      return out;
+    }).join("");
+  const msg = wrap(message,38);
+  const det = details.split("\n").flatMap(line=>wrap(line,35));
+  let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1100" viewBox="0 0 800 1100">
+  <rect width="800" height="1100" fill="${bg}"/>
+  <rect x="32" y="32" width="736" height="1036" rx="8" fill="none" stroke="#d7b56d" stroke-width="5"/>
+  <rect x="48" y="48" width="704" height="1004" rx="6" fill="none" stroke="#d7b56d" stroke-width="1.5"/>
+  <g fill="${fg}" text-anchor="middle" font-family="Georgia,serif">
+  <text x="400" y="160" font-size="58">${esc(flower)}</text>
+  <text x="400" y="230" font-family="Arial,sans-serif" font-size="22" letter-spacing="5">${esc(eyebrow.toUpperCase())}</text>
+  ${textLines(title,340,58,23,70)}
+  ${textLines(names,510,43,27,55)}
+  ${msg.map((line,i)=>`<text x="400" y="${610+i*32}" font-family="Arial,sans-serif" font-size="23">${esc(line)}</text>`).join("")}
+  ${det.map((line,i)=>`<text x="400" y="${790+i*38}" font-family="Arial,sans-serif" font-size="24">${esc(line)}</text>`).join("")}
+  <text x="400" y="990" font-size="38">✦ ❀ ✦</text>
+  </g></svg>`;
+  const blob = new Blob([svg],{type:"image/svg+xml;charset=utf-8"});
+  const url = URL.createObjectURL(blob);
+  const img = new Image();
+  img.onload = ()=>{
+    const canvas = document.createElement("canvas");
+    canvas.width=800; canvas.height=1100;
+    const ctx=canvas.getContext("2d");
+    ctx.drawImage(img,0,0);
+    URL.revokeObjectURL(url);
+    canvas.toBlob(png=>{
+      const link=document.createElement("a");
+      link.download="rose-bouquet-invitation.png";
+      link.href=URL.createObjectURL(png);
+      link.click();
+      setTimeout(()=>URL.revokeObjectURL(link.href),1500);
+    },"image/png");
+  };
+  img.onerror=()=>{URL.revokeObjectURL(url);alert("Download failed. Please try again.");};
+  img.src=url;
+});
+
+$("whatsapp").addEventListener("click",()=>{
+  const text = `${$("heading").textContent}\n${$("names").textContent}\n${$("date").value}\n${$("venue").value}\n${$("message").value}\n\nMade with Rose Bouquet Cards`;
+  window.open("https://wa.me/?text="+encodeURIComponent(text),"_blank","noopener");
+});
+
+$("year").textContent = new Date().getFullYear();
+updateCard();
+</script>
+</body>
+</html>
