@@ -31,6 +31,59 @@ main{max-width:1250px;margin:auto;padding:24px 18px 60px}.section-title{text-ali
 .invite .petal{position:absolute;top:-30px;font-size:20px;animation:fall 8s linear infinite;opacity:.75;pointer-events:none}.invite .p1{left:15%;animation-delay:-3s}.invite .p2{left:76%;animation-delay:-6s}.invite .p3{left:46%;animation-delay:-1s}.invite .p4{left:88%;animation-delay:-4s}
 @keyframes fall{0%{transform:translateY(-20px) rotate(0)}100%{transform:translateY(700px) rotate(360deg)}}
 .invite .topline{font:10px Arial,sans-serif;letter-spacing:4px;text-transform:uppercase;color:#f0d39a;margin-bottom:22px}.invite .rose-icon{font-size:54px;filter:drop-shadow(0 8px 12px #0005);margin:0 0 15px;animation:bloom 4s ease-in-out infinite}.invite h3{font-size:clamp(27px,3vw,39px);font-weight:normal;line-height:1.12;margin:7px 0;color:#ffe8b4;text-shadow:0 3px 14px #0007;overflow-wrap:anywhere}.invite .invite-line{font-size:14px;font-style:italic;margin:10px 0;color:#fff0e5}.invite .names{font-size:clamp(23px,2.6vw,34px);color:#fff8f0;line-height:1.3;overflow-wrap:anywhere}.invite .rule{width:90px;height:1px;background:linear-gradient(90deg,transparent,#edcf8c,transparent);margin:17px auto}.invite .details{font:12px/1.9 Arial,sans-serif;white-space:pre-line;color:#f9e8de;max-width:100%;overflow-wrap:anywhere}.invite .message{font-size:13px;font-style:italic;line-height:1.6;max-width:300px;margin-top:16px;color:#f9dfce}.invite .bottom{font:9px Arial,sans-serif;letter-spacing:3px;margin-top:22px;color:#e6c57f;text-transform:uppercase}
+
+/* 24 genuinely different invitation compositions */
+.invite{transition:background .35s,border-radius .35s;}
+.invite:before{transition:all .35s}
+.invite.theme-wine{background:radial-gradient(ellipse at 50% 25%,#8c2547,#260717 76%)}
+.invite.theme-pink{background:linear-gradient(145deg,#ffe0eb,#c95b87 48%,#6e1e45)}
+.invite.theme-pink:before{inset:28px 18px;border-radius:48% 48% 8px 8px;border:2px solid #ffe9f2}
+.invite.theme-gold{background:linear-gradient(135deg,#f0d49a,#98613c 48%,#35141f)}
+.invite.theme-gold:before{inset:18px;border:3px double #ffe6a4;border-radius:3px}
+.invite.theme-ivory{background:linear-gradient(160deg,#fff8e9,#e4c6ad 55%,#986276);color:#62354a}
+.invite.theme-ivory:before{inset:24px;border:1px solid #a77a55;border-radius:3px}
+.invite.theme-purple{background:radial-gradient(circle at 50% 18%,#b6a4eb,#4c2b70 58%,#1d102e)}
+.invite.theme-purple:before{inset:22px 34px;border:1px solid #ead7ff;border-radius:48% 48% 4px 4px}
+.invite.theme-red{background:radial-gradient(circle at 50% 35%,#ff7e84,#94152f 52%,#300616)}
+.invite.theme-red:before{inset:16px;border:4px double #f4c7a2;border-radius:6px}
+.invite.theme-gift{background:linear-gradient(135deg,#ffced9,#b81f52 48%,#4b0828)}
+.invite.theme-gift:before{inset:0 39% 0;border:0;border-left:12px solid #f5d27d;border-right:12px solid #f5d27d;border-radius:0;background:linear-gradient(90deg,#fff0 0 35%,#f5d27d44 35% 65%,#fff0 65%)}
+.invite.theme-letter{background:linear-gradient(155deg,#fff4df,#d8a6a5 55%,#754052);color:#59263b}
+.invite.theme-letter:before{inset:9% 8%;border:2px dashed #9d6c5e;border-radius:4px;transform:rotate(-1deg)}
+.invite.theme-rings{background:radial-gradient(circle at 50% 28%,#f5e9c9,#a98c60 40%,#202e45 100%)}
+.invite.theme-rings:before{inset:22px;border:5px double #f5d98b;border-radius:50%}
+.invite.theme-candle{background:radial-gradient(ellipse at 50% 35%,#a85c27,#3b1722 52%,#140c17)}
+.invite.theme-candle:before{inset:12px;border:1px solid #f6b65c;border-radius:8px;box-shadow:inset 0 0 45px #ffb44822,0 0 35px #ffb44822}
+.invite.theme-pearl{background:radial-gradient(circle,#fffdf5,#e7d8ce 60%,#bda2a0);color:#654252}
+.invite.theme-pearl:before{inset:17px;border:7px dotted #fff8ee;border-radius:35px}
+.invite.theme-garden{background:linear-gradient(135deg,#b9c8a2,#42664b 55%,#173c34)}
+.invite.theme-garden:before{inset:18px 30px;border:2px solid #d6e0b4;border-radius:50% 50% 4px 4px}
+.invite.theme-night{background:radial-gradient(circle at 50% 15%,#394f94,#11172f 55%,#080d20)}
+.invite.theme-night:before{inset:20px;border:1px solid #a9c8ff;border-radius:4px;box-shadow:0 0 24px #92baff44}
+.invite.theme-butterfly{background:linear-gradient(145deg,#d9b9ff,#7951b3 55%,#30204e)}
+.invite.theme-butterfly:before{inset:28px 12px;border:2px dashed #f4ddff;border-radius:46% 46% 10px 10px}
+.invite.theme-sakura{background:linear-gradient(160deg,#fff0f4,#e7a3b8 54%,#86415e)}
+.invite.theme-sakura:before{inset:12px 25px;border:1px solid #fff5f7;border-radius:0 0 48% 48%}
+.invite.theme-royalblue{background:linear-gradient(145deg,#315f9c,#102a52 58%,#07152c)}
+.invite.theme-royalblue:before{inset:18px;border:3px double #f1d17a;border-radius:3px}
+.invite.theme-terracotta{background:linear-gradient(180deg,#f4b17b 0%,#c96d56 42%,#632f40 43%,#32172e 100%)}
+.invite.theme-terracotta:before{inset:28px 16px;border:1px solid #ffdfbd;border-radius:120px 120px 5px 5px}
+.invite.theme-birthday{background:radial-gradient(circle at 50% 28%,#ffb6d2,#ed4e8b 48%,#571849)}
+.invite.theme-birthday:before{inset:14px;border:3px dashed #ffe7a6;border-radius:18px}
+.invite.theme-balloon{background:linear-gradient(145deg,#70d8d4,#487bd1 48%,#53357f)}
+.invite.theme-balloon:before{inset:22px;border:2px solid #fff;border-radius:12px 70px 12px 70px}
+.invite.theme-disco{background:radial-gradient(circle at 50% 20%,#6d368d,#17102b 60%,#090712)}
+.invite.theme-disco:before{inset:16px;border:2px dotted #ffdc8b;border-radius:8px;box-shadow:inset 0 0 45px #e46fff22}
+.invite.theme-minimal{background:#f8f3e9;color:#332b30}
+.invite.theme-minimal:before{inset:35px;border:1px solid #322a30;border-radius:0}
+.invite.theme-watercolor{background:radial-gradient(ellipse at 18% 18%,#e9c2e0 0 13%,transparent 40%),radial-gradient(ellipse at 85% 80%,#a7d5cb 0 15%,transparent 43%),#fff5ed;color:#594252}
+.invite.theme-watercolor:before{inset:12px;border:1px solid #c8a2b5;border-radius:45% 12% 45% 12%}
+.invite.theme-emerald{background:linear-gradient(135deg,#1c6a53,#073a32 55%,#031e22)}
+.invite.theme-emerald:before{inset:20px;border:2px solid #d9bf76;border-radius:3px;box-shadow:inset 0 0 0 5px #d9bf7622}
+.invite.theme-champagne{background:radial-gradient(ellipse at 50% 20%,#f9e7bd,#bd8d62 48%,#5b293a)}
+.invite.theme-champagne:before{inset:24px;border:2px solid #fff0c9;border-radius:50% 50% 8px 8px}
+.invite.theme-ivory .topline,.invite.theme-ivory h3,.invite.theme-ivory .names,.invite.theme-ivory .details,.invite.theme-ivory .message,.invite.theme-minimal .topline,.invite.theme-minimal h3,.invite.theme-minimal .names,.invite.theme-minimal .details,.invite.theme-minimal .message,.invite.theme-watercolor h3,.invite.theme-watercolor .names,.invite.theme-watercolor .details,.invite.theme-watercolor .message{color:inherit;text-shadow:none}
+
 .invite.theme-pink{background:radial-gradient(ellipse at 50% 30%,#ed9cb3,#a62f5b 54%,#4c102d)}.invite.theme-gold{background:radial-gradient(ellipse at 50% 30%,#b88755,#5a2937 58%,#260d1b)}.invite.theme-ivory{background:radial-gradient(ellipse at 50% 30%,#fff1d8,#c78b91 55%,#63243c);color:#fff}.invite.theme-purple{background:radial-gradient(ellipse at 50% 30%,#9e8acb,#4b2d69 55%,#1e102c)}.invite.theme-red{background:radial-gradient(ellipse at 50% 30%,#f06c77,#8a1736 55%,#290816)}
 @keyframes bloom{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
 footer{text-align:center;padding:28px 16px;background:#35101f;color:#e8c8d2;font:12px/1.7 Arial,sans-serif}footer strong{font-family:Georgia,serif;color:#f3d69a;font-size:17px}
@@ -81,12 +134,30 @@ The Rose Garden, Muscat</div><div class="message" id="pvMessage">Your presence w
 <script>
 const $=id=>document.getElementById(id);
 const themes=[
-{id:'wine',name:'Royal Burgundy',art:'art-wine',cls:'',rose:'🌹'},
-{id:'pink',name:'Blush Romance',art:'art-pink',cls:'theme-pink',rose:'🌸'},
-{id:'gold',name:'Golden Elegance',art:'art-gold',cls:'theme-gold',rose:'💐'},
-{id:'ivory',name:'Ivory Garden',art:'art-ivory',cls:'theme-ivory',rose:'🌷'},
-{id:'purple',name:'Lavender Dream',art:'art-purple',cls:'theme-purple',rose:'🌺'},
-{id:'red',name:'Red Rose Luxury',art:'art-red',cls:'theme-red',rose:'🌹'}
+{id:'wine',name:'01 Royal Burgundy',art:'art-wine',cls:'theme-wine',rose:'🌹',shape:'arch',line:'Royal floral frame'},
+{id:'pink',name:'02 Blush Romance',art:'art-pink',cls:'theme-pink',rose:'🌸',shape:'oval',line:'Soft pink blossoms'},
+{id:'gold',name:'03 Golden Elegance',art:'art-gold',cls:'theme-gold',rose:'💐',shape:'gold',line:'Gold foil luxury'},
+{id:'ivory',name:'04 Ivory Garden',art:'art-ivory',cls:'theme-ivory',rose:'🌷',shape:'garden',line:'Ivory botanical'},
+{id:'purple',name:'05 Lavender Dream',art:'art-purple',cls:'theme-purple',rose:'🪻',shape:'moon',line:'Lavender moonlight'},
+{id:'red',name:'06 Red Rose Luxury',art:'art-red',cls:'theme-red',rose:'🥀',shape:'diamond',line:'Red rose romance'},
+{id:'gift',name:'07 Surprise Gift Box',art:'art-gift',cls:'theme-gift',rose:'🎁',shape:'gift',line:'Ribbon gift reveal'},
+{id:'letter',name:'08 Love Letter',art:'art-letter',cls:'theme-letter',rose:'💌',shape:'letter',line:'Open envelope'},
+{id:'rings',name:'09 Wedding Rings',art:'art-rings',cls:'theme-rings',rose:'💍',shape:'rings',line:'Interlocked rings'},
+{id:'candle',name:'10 Candlelight',art:'art-candle',cls:'theme-candle',rose:'🕯️',shape:'candle',line:'Warm candle glow'},
+{id:'pearl',name:'11 Pearl & Lace',art:'art-pearl',cls:'theme-pearl',rose:'🤍',shape:'lace',line:'Pearl lace details'},
+{id:'garden',name:'12 Secret Garden',art:'art-garden',cls:'theme-garden',rose:'🌿',shape:'leaves',line:'Green garden vines'},
+{id:'night',name:'13 Midnight Stars',art:'art-night',cls:'theme-night',rose:'✨',shape:'stars',line:'Starlit night sky'},
+{id:'butterfly',name:'14 Butterfly Bliss',art:'art-butterfly',cls:'theme-butterfly',rose:'🦋',shape:'butterfly',line:'Floating butterflies'},
+{id:'sakura',name:'15 Sakura Blossom',art:'art-sakura',cls:'theme-sakura',rose:'🌸',shape:'sakura',line:'Cherry blossom'},
+{id:'royalblue',name:'16 Sapphire Royal',art:'art-royalblue',cls:'theme-royalblue',rose:'👑',shape:'royal',line:'Sapphire and crown'},
+{id:'terracotta',name:'17 Desert Sunset',art:'art-terracotta',cls:'theme-terracotta',rose:'🌅',shape:'sunset',line:'Warm sunset horizon'},
+{id:'birthday',name:'18 Birthday Party',art:'art-birthday',cls:'theme-birthday',rose:'🎂',shape:'cake',line:'Cake and confetti'},
+{id:'balloon',name:'19 Balloon Celebration',art:'art-balloon',cls:'theme-balloon',rose:'🎈',shape:'balloons',line:'Colourful balloons'},
+{id:'disco',name:'20 Glitter Disco',art:'art-disco',cls:'theme-disco',rose:'🪩',shape:'disco',line:'Sparkle party lights'},
+{id:'minimal',name:'21 Modern Minimal',art:'art-minimal',cls:'theme-minimal',rose:'✦',shape:'minimal',line:'Clean modern layout'},
+{id:'watercolor',name:'22 Watercolor Florals',art:'art-watercolor',cls:'theme-watercolor',rose:'🪷',shape:'watercolor',line:'Painted floral wash'},
+{id:'emerald',name:'23 Emerald Luxe',art:'art-emerald',cls:'theme-emerald',rose:'🍃',shape:'emerald',line:'Emerald velvet'},
+{id:'champagne',name:'24 Champagne Toast',art:'art-champagne',cls:'theme-champagne',rose:'🥂',shape:'champagne',line:'Champagne celebration'}
 ];
 const categories={
 engagement:{heading:"You're Invited",line:'Together with our families',message:'Your presence will make our special day even more beautiful.'},
@@ -106,7 +177,7 @@ function renderTemplates(){
  templateContainer.innerHTML='';
  themes.forEach((t,i)=>{
   const b=document.createElement('button');b.className='template'+(i===themeIndex?' selected':'');
-  b.innerHTML=`<div class="template-art ${t.art}"><span class="art-rose r1">${t.rose}</span><div class="art-text">${categories[category].heading}<br><span style="font-size:12px">A beautiful day</span></div><span class="art-rose r2">🌹</span></div><small>${t.name}</small>`;
+  b.innerHTML=`<div class="template-art ${t.art}"><span class="art-rose r1">${t.rose}</span><div class="art-text"><b>${t.rose}</b><br>${t.line}<br><span style="font-size:10px">${categories[category].heading}</span></div><span class="art-rose r2">${t.shape==='rings'?'💍':t.shape==='gift'?'🎀':t.shape==='cake'?'🎉':t.shape==='stars'?'⭐':t.rose}</span></div><small>${t.name}</small>`;
   b.onclick=()=>{themeIndex=i;renderTemplates();applyTheme();};templateContainer.appendChild(b);
  });
 }
@@ -156,9 +227,9 @@ function canvasText(ctx,text,x,y,maxWidth,lineHeight){
  if(line)ctx.fillText(line,x,y);return y+lineHeight;
 }
 function drawVideoFrame(ctx,w,h,progress){
- const t=themes[themeIndex],bg={wine:['#8f3753','#210817'],pink:['#ed9cb3','#4c102d'],gold:['#b88755','#260d1b'],ivory:['#fff1d8','#63243c'],purple:['#9e8acb','#1e102c'],red:['#f06c77','#290816']}[t.id];
+ const t=themes[themeIndex],bg=({wine:['#8c2547','#260717'],pink:['#ffe0eb','#6e1e45'],gold:['#f0d49a','#35141f'],ivory:['#fff8e9','#986276'],purple:['#b6a4eb','#1d102e'],red:['#ff7e84','#300616'],gift:['#ffced9','#4b0828'],letter:['#fff4df','#754052'],rings:['#f5e9c9','#202e45'],candle:['#a85c27','#140c17'],pearl:['#fffdf5','#bda2a0'],garden:['#b9c8a2','#173c34'],night:['#394f94','#080d20'],butterfly:['#d9b9ff','#30204e'],sakura:['#fff0f4','#86415e'],royalblue:['#315f9c','#07152c'],terracotta:['#f4b17b','#32172e'],birthday:['#ffb6d2','#571849'],balloon:['#70d8d4','#53357f'],disco:['#6d368d','#090712'],minimal:['#f8f3e9','#b5a9a2'],watercolor:['#e9c2e0','#a7d5cb'],emerald:['#1c6a53','#031e22'],champagne:['#f9e7bd','#5b293a']})[t.id]||['#8c2547','#260717'];
  const grad=ctx.createRadialGradient(w*.5,h*.28,20,w*.5,h*.55,h*.8);grad.addColorStop(0,bg[0]);grad.addColorStop(1,bg[1]);ctx.fillStyle=grad;ctx.fillRect(0,0,w,h);
- ctx.strokeStyle='#e8ca86';ctx.lineWidth=3;ctx.beginPath();ctx.roundRect(w*.07,h*.045,w*.86,h*.91,Math.min(w*.1,55));ctx.stroke();
+ ctx.strokeStyle=t.id==='minimal'?'#332b30':(['ivory','watercolor','pearl'].includes(t.id)?'#a77a8c':'#e8ca86');ctx.lineWidth=['gold','royalblue','emerald'].includes(t.id)?6:3;ctx.beginPath();if(t.id==='rings'||t.id==='champagne')ctx.ellipse(w/2,h/2,w*.41,h*.43,0,0,Math.PI*2);else if(t.id==='minimal')ctx.rect(w*.1,h*.06,w*.8,h*.88);else ctx.roundRect(w*.07,h*.045,w*.86,h*.91,Math.min(w*.1,55));ctx.stroke();
  // Gold glints
  for(let i=0;i<40;i++){let x=(i*137+progress*60)%w,y=(i*197+progress*95)%h;ctx.fillStyle='rgba(255,220,145,'+(0.15+0.3*Math.abs(Math.sin(progress+i)))+')';ctx.beginPath();ctx.arc(x,y,1.5+(i%3),0,Math.PI*2);ctx.fill();}
  // Falling rose petals
